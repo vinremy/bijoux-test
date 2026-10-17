@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mortier — Joaillerie faite main, sur mesure</title>
-  <meta name="description" content="Mortier dessine et façonne à la main des bijoux entièrement sur mesure, en argent et en or. Chaque pièce est unique : bagues, joncs, chevalières, colliers et pendentifs.">
+  <title>Mortier — Bijoux faits main</title>
+  <meta name="description" content="Mortier : bijoux en argent et en or, faits main, chacun en un seul exemplaire. Joncs, bagues, chevalières, colliers et pendentifs.">
   <meta name="theme-color" content="#161c1a">
   <link rel="preload" href="fonts/bodoni-moda-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -15,270 +15,148 @@
 </head>
 <body>
   <a class="skip" href="#contenu">Aller au contenu</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
 
-  <!-- 1. Le nom comme monument : MORTIER reste en place pendant que les pièces défilent dessous -->
-  <section class="hero" id="haut" aria-label="Mortier, joaillerie sur mesure">
+  <!-- 1. Le nom épinglé : les pièces se relaient dessous -->
+  <section class="hero" id="haut" aria-label="Mortier">
     <div class="hero__stage">
       <header class="bar">
         <a class="bar__mark" href="#haut" aria-label="Mortier, retour en haut"><span class="bar__word">Mortier</span><span class="bar__mono" aria-hidden="true">M</span></a>
         <nav class="bar__nav" aria-label="Navigation principale">
           <a href="#pieces">Pièces</a>
-          <a href="#composer">Sur mesure</a>
+          <a href="#collection">Collection</a>
           <a href="#atelier">Atelier</a>
-          <a href="#contact">Contact</a>
         </nav>
       </header>
 
       <div class="hero__frames">
-        <figure class="frame is-on" data-ground="#312d2b" data-page="#1c1a19">
-          <img src="img/bague-or-verte-portrait.jpg" width="548" height="822" alt="Bague en or à griffes, sertie d'une pierre verte, portée au doigt" fetchpriority="high" decoding="async">
+        <figure class="frame is-on" data-page="#1c1a19" data-name="Bague à griffes, pierre verte">
+          <img src="img/bague-or-verte-portrait.jpg" width="427" height="641" alt="Bague en or à griffes, sertie d'une pierre verte, portée au doigt" fetchpriority="high">
         </figure>
-        <figure class="frame" data-ground="#41342d" data-page="#251e1a">
-          <img src="img/pendentif-ecorce-portrait.jpg" width="548" height="822" alt="Pendentif en argent à la surface d'écorce, tenu entre deux doigts" loading="lazy" decoding="async">
+        <figure class="frame" data-page="#251e1a" data-name="Pendentif écorce">
+          <img src="img/pendentif-ecorce-portrait.jpg" width="553" height="829" alt="Pendentif en argent à la surface d'écorce, tenu entre deux doigts" loading="lazy">
         </figure>
-        <figure class="frame" data-ground="#4f4943" data-page="#2e2a27">
-          <img src="img/bague-grenat-portrait.jpg" width="548" height="822" alt="Solitaire en argent serti d'un grenat, posé sur l'établi" loading="lazy" decoding="async">
+        <figure class="frame" data-page="#2e2a27" data-name="Solitaire grenat">
+          <img src="img/bague-grenat-portrait.jpg" width="547" height="821" alt="Solitaire en argent serti d'un grenat, posé sur l'établi" loading="lazy">
         </figure>
       </div>
 
-      <h1 class="hero__title">Mortier</h1>
+      <h1 class="hero__title" aria-label="Mortier"><span>M</span><span>o</span><span>r</span><span>t</span><span>i</span><span>e</span><span>r</span></h1>
 
-      <p class="hero__line">Joaillerie faite main, entièrement sur mesure. Chaque pièce n'existe qu'une fois.</p>
-      <a class="btn btn--accent hero__action" href="#composer">Composer ma pièce</a>
+      <p class="hero__line">Bijoux en argent et en or, faits main. Chacun n'existe qu'une fois.</p>
+      <p class="hero__now" aria-live="polite"><span class="hero__count">1 / 3</span><span class="hero__name">Bague à griffes, pierre verte</span></p>
     </div>
   </section>
 
   <main id="contenu">
 
-    <!-- 2. Ce que veut dire le nom -->
-    <section class="intro" aria-label="L'idée de Mortier">
-      <div class="intro__grid">
-        <p class="intro__text">Le mortier tient la pierre. Ici, chaque bijou est dessiné avec vous, façonné à la main, et n'existe qu'une fois.</p>
-        <figure class="intro__pic" data-piece='{"type":"mortier"}' data-reveal>
-          <figcaption class="sr">Un mortier et son pilon, l'objet qui donne son nom à l'atelier</figcaption>
-        </figure>
-        <p class="intro__note" data-reveal>Aucune collection, aucune série. Les pièces montrées ici ont déjà trouvé leur personne&nbsp;; la vôtre reste à dessiner.</p>
+    <!-- 2. Les matières, en défilement -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Argent martelé</span><span>Grenat</span><span>Opale</span><span>Écorce</span><span>Tresse</span><span>Hexagones</span><span>Poli miroir</span>
+        <span>Argent martelé</span><span>Grenat</span><span>Opale</span><span>Écorce</span><span>Tresse</span><span>Hexagones</span><span>Poli miroir</span>
+      </div>
+    </div>
+
+    <!-- 3. Cinq pièces, chacune son chapitre, avec une loupe -->
+    <section class="feature" id="pieces" aria-labelledby="pieces-titre">
+      <h2 class="feature__title" id="pieces-titre" data-reveal>Cinq pièces</h2>
+      <p class="feature__hint" data-reveal>Passez sur une photo pour la voir à la loupe.</p>
+
+      <article class="chapter">
+        <div class="loupe" data-reveal="wipe">
+          <img src="img/jonc-tresse.jpg" width="800" height="842" alt="Jonc en argent martelé, ceint d'une tresse d'argent" loading="lazy">
+        </div>
+        <div class="chapter__text">
+          <h3 data-reveal>Jonc à la tresse</h3>
+          <p data-reveal>Un jonc large, martelé à la main, ceint d'une tresse de fil d'argent qui suit tout le tour du doigt.</p>
+          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Martelé, intérieur poli</dd></div></dl>
+        </div>
+      </article>
+
+      <article class="chapter chapter--flip">
+        <div class="loupe" data-reveal="wipe">
+          <img src="img/bague-grenat.jpg" width="750" height="821" alt="Solitaire en argent serti d'un grenat ovale" loading="lazy">
+        </div>
+        <div class="chapter__text">
+          <h3 data-reveal>Solitaire grenat</h3>
+          <p data-reveal>Un grenat ovale tenu par une couronne de griffes découpées à même le métal.</p>
+          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Pierre</dt><dd>Grenat, taille ovale</dd></div></dl>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="loupe" data-reveal="wipe">
+          <img src="img/collier-hexagones.jpg" width="713" height="822" alt="Collier articulé d'hexagones en argent sur un buste noir" loading="lazy">
+        </div>
+        <div class="chapter__text">
+          <h3 data-reveal>Collier hexagones</h3>
+          <p data-reveal>Des hexagones texturés reliés par des tiges fines. Le collier bouge avec qui le porte.</p>
+          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Texturé et poli</dd></div></dl>
+        </div>
+      </article>
+
+      <article class="chapter chapter--flip">
+        <div class="loupe" data-reveal="wipe">
+          <img src="img/pendentif-ecorce.jpg" width="631" height="829" alt="Pendentif en argent dont la face reprend le relief d'une écorce" loading="lazy">
+        </div>
+        <div class="chapter__text">
+          <h3 data-reveal>Pendentif écorce</h3>
+          <p data-reveal>Un médaillon dont la face reprend le relief d'une écorce, monté sur une bélière polie miroir.</p>
+          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Relief oxydé, bord poli</dd></div></dl>
+        </div>
+      </article>
+
+      <article class="chapter">
+        <div class="loupe loupe--wide" data-reveal="wipe">
+          <img src="img/bague-opale.jpg" width="785" height="550" alt="Bague à double anneau sertie d'une opale aux reflets verts" loading="lazy">
+        </div>
+        <div class="chapter__text">
+          <h3 data-reveal>Double anneau, opale</h3>
+          <p data-reveal>Deux anneaux qui s'écartent pour recevoir une opale aux reflets verts, puis se rejoignent.</p>
+          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Pierre</dt><dd>Opale, taille ovale</dd></div></dl>
+        </div>
+      </article>
+    </section>
+
+    <!-- 4. Toute la collection : filtres et visionneuse -->
+    <section class="collection" id="collection" aria-labelledby="collection-titre">
+      <div class="collection__head">
+        <h2 class="collection__title" id="collection-titre" data-reveal>Collection</h2>
+        <div class="filters" role="group" aria-label="Filtrer les pièces" data-reveal>
+          <button type="button" class="is-on" data-filter="tout" aria-pressed="true">Tout <sup>10</sup></button>
+          <button type="button" data-filter="bague" aria-pressed="false">Bagues <sup>4</sup></button>
+          <button type="button" data-filter="jonc" aria-pressed="false">Joncs <sup>2</sup></button>
+          <button type="button" data-filter="chevaliere" aria-pressed="false">Chevalières <sup>2</sup></button>
+          <button type="button" data-filter="cou" aria-pressed="false">Colliers et pendentifs <sup>2</sup></button>
+        </div>
+      </div>
+
+      <div class="grid" id="grid">
+        <button type="button" class="card" data-cat="jonc" data-reveal><img src="img/jonc-neige.jpg" width="852" height="780" alt="Jonc texturé posé dans la neige" loading="lazy"><span>Jonc texturé</span></button>
+        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-or-verte.jpg" width="476" height="641" alt="Bague en or à griffes et pierre verte, portée" loading="lazy"><span>Bague à griffes, pierre verte</span></button>
+        <button type="button" class="card" data-cat="chevaliere" data-reveal><img src="img/trio-chevalieres.jpg" width="831" height="785" alt="Trois chevalières en argent, gravées chacune différemment" loading="lazy"><span>Trois chevalières gravées</span></button>
+        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/collier-hexagones.jpg" width="713" height="822" alt="Collier articulé d'hexagones en argent" loading="lazy"><span>Collier hexagones</span></button>
+        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-mousse.jpg" width="778" height="565" alt="Bague ouverte aux extrémités croisées, dans un terrarium de mousse" loading="lazy"><span>Bague ouverte</span></button>
+        <button type="button" class="card" data-cat="jonc" data-reveal><img src="img/jonc-tresse.jpg" width="800" height="842" alt="Jonc martelé ceint d'une tresse d'argent" loading="lazy"><span>Jonc à la tresse</span></button>
+        <button type="button" class="card" data-cat="chevaliere" data-reveal><img src="img/chevaliere-lisse.jpg" width="846" height="708" alt="Chevalière en argent au plateau rectangulaire poli" loading="lazy"><span>Chevalière lisse</span></button>
+        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-opale.jpg" width="785" height="550" alt="Bague à double anneau sertie d'une opale" loading="lazy"><span>Double anneau, opale</span></button>
+        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/pendentif-ecorce.jpg" width="631" height="829" alt="Pendentif en argent à la surface d'écorce" loading="lazy"><span>Pendentif écorce</span></button>
+        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-grenat.jpg" width="750" height="821" alt="Solitaire en argent serti d'un grenat" loading="lazy"><span>Solitaire grenat</span></button>
       </div>
     </section>
 
-    <!-- 3. Les pièces déjà réalisées -->
-    <section class="work" id="pieces" aria-labelledby="pieces-titre">
-      <div class="work__head">
-        <h2 class="work__title" id="pieces-titre" data-reveal>Pièces</h2>
-        <a class="link" href="https://www.instagram.com/bijoux_mortier/" target="_blank" rel="noopener" data-reveal>Toutes les pièces sur Instagram</a>
-      </div>
-      <div class="wall">
-        <div class="wall__row" style="--h:380px">
-          <figure class="tile" style="--r:1.09" data-reveal>
-            <img src="img/jonc-neige.jpg" width="852" height="780" alt="Jonc texturé posé dans la neige" loading="lazy" decoding="async">
-            <figcaption><span>Jonc texturé</span><span>Argent</span></figcaption>
-          </figure>
-          <figure class="tile" style="--r:0.74" data-reveal>
-            <img src="img/bague-or-verte.jpg" width="476" height="641" alt="Bague en or à griffes et pierre verte, portée" loading="lazy" decoding="async">
-            <figcaption><span>Bague à griffes, pierre verte</span><span>Or</span></figcaption>
-          </figure>
-          <figure class="tile" style="--r:1.43" data-reveal>
-            <img src="img/bague-opale.jpg" width="785" height="550" alt="Bague à double anneau sertie d'une opale, sur une pierre moussue" loading="lazy" decoding="async">
-            <figcaption><span>Double anneau, opale</span><span>Argent</span></figcaption>
-          </figure>
-        </div>
-        <div class="wall__row" style="--h:300px">
-          <figure class="tile" style="--r:1.19" data-reveal>
-            <img src="img/chevaliere-lisse.jpg" width="846" height="708" alt="Chevalière en argent au plateau rectangulaire poli" loading="lazy" decoding="async">
-            <figcaption><span>Chevalière lisse</span><span>Argent</span></figcaption>
-          </figure>
-          <figure class="tile" style="--r:0.87" data-reveal>
-            <img src="img/collier-hexagones.jpg" width="713" height="822" alt="Collier articulé d'hexagones en argent" loading="lazy" decoding="async">
-            <figcaption><span>Collier hexagones</span><span>Argent</span></figcaption>
-          </figure>
-          <figure class="tile" style="--r:1.38" data-reveal>
-            <img src="img/bague-mousse.jpg" width="778" height="565" alt="Bague ouverte aux extrémités croisées, dans un terrarium de mousse" loading="lazy" decoding="async">
-            <figcaption><span>Bague ouverte</span><span>Argent</span></figcaption>
-          </figure>
-        </div>
-        <div class="wall__row" style="--h:340px">
-          <figure class="tile" style="--r:1.06" data-reveal>
-            <img src="img/trio-chevalieres.jpg" width="831" height="785" alt="Trois chevalières en argent, gravées chacune différemment" loading="lazy" decoding="async">
-            <figcaption><span>Trois chevalières gravées</span><span>Argent</span></figcaption>
-          </figure>
-          <figure class="tile" style="--r:0.76" data-reveal>
-            <img src="img/pendentif-ecorce.jpg" width="631" height="829" alt="Pendentif en argent à la surface d'écorce" loading="lazy" decoding="async">
-            <figcaption><span>Pendentif écorce</span><span>Argent</span></figcaption>
-          </figure>
-          <figure class="tile" style="--r:0.95" data-reveal>
-            <img src="img/jonc-tresse.jpg" width="800" height="842" alt="Jonc martelé ceint d'une tresse d'argent" loading="lazy" decoding="async">
-            <figcaption><span>Jonc martelé à la tresse</span><span>Argent</span></figcaption>
-          </figure>
-          <figure class="tile" style="--r:0.91" data-reveal>
-            <img src="img/bague-grenat.jpg" width="750" height="821" alt="Solitaire en argent serti d'un grenat" loading="lazy" decoding="async">
-            <figcaption><span>Solitaire grenat</span><span>Argent</span></figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. Comment se déroule une commande -->
-    <section class="steps" aria-labelledby="etapes-titre">
-      <div class="steps__grid">
-        <div class="steps__copy">
-          <h2 class="steps__title" id="etapes-titre" data-reveal>De l'idée à la pièce</h2>
-          <p data-reveal>Une commande avance en quatre temps, à votre rythme. Vous voyez la pièce à chaque étape avant qu'on passe à la suivante.</p>
-        </div>
-        <div class="slip" data-reveal>
-          <div class="slip__group">
-            <h3>Semaine 1</h3>
-            <p class="slip__row"><span>Première rencontre, à l'atelier ou en visio</span><i aria-hidden="true"></i><span>1 h</span></p>
-            <p class="slip__row"><span>Vos idées, vos pierres, votre budget</span><i aria-hidden="true"></i><span>notés</span></p>
-          </div>
-          <div class="slip__group">
-            <h3>Semaines 2 et 3</h3>
-            <p class="slip__row"><span>Croquis et choix des matériaux</span><i aria-hidden="true"></i><span>1 sem.</span></p>
-            <p class="slip__row"><span>Validation du dessin et du devis</span><i aria-hidden="true"></i><span>avec vous</span></p>
-          </div>
-          <div class="slip__group">
-            <h3>Semaines 4 à 7</h3>
-            <p class="slip__row"><span>Fonte et façonnage du métal</span><i aria-hidden="true"></i><span>2 sem.</span></p>
-            <p class="slip__row"><span>Sertissage des pierres</span><i aria-hidden="true"></i><span>1 sem.</span></p>
-            <p class="slip__row"><span>Polissage et finitions</span><i aria-hidden="true"></i><span>1 sem.</span></p>
-          </div>
-          <div class="slip__group">
-            <h3>Semaine 8</h3>
-            <p class="slip__row"><span>Essayage et derniers ajustements</span><i aria-hidden="true"></i><span>30 min</span></p>
-          </div>
-          <p class="slip__total"><span>Votre pièce unique, dans vos mains</span><span>6 à 8 sem.</span></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. La chose vivante : composer sa pièce -->
-    <section class="maker" id="composer" aria-labelledby="composer-titre">
-      <div class="maker__plate" data-reveal>
-        <div class="maker__art" id="maker-art" role="img" aria-live="polite" aria-label="Bague en argent poli miroir, grenat, taille ronde"></div>
-      </div>
-      <form class="maker__panel" id="maker">
-        <fieldset class="tabs">
-          <legend class="sr">Type de bijou</legend>
-          <label><input type="radio" name="type" value="bague" checked><span>Bague</span></label>
-          <label><input type="radio" name="type" value="jonc"><span>Jonc</span></label>
-          <label><input type="radio" name="type" value="chevaliere"><span>Chevalière</span></label>
-          <label><input type="radio" name="type" value="pendentif"><span>Pendentif</span></label>
-        </fieldset>
-
-        <div class="maker__mid">
-          <h2 class="maker__title" id="composer-titre" data-reveal>Composez la vôtre</h2>
-          <p class="maker__sum" id="maker-sum" data-reveal>Bague en argent poli miroir, grenat, taille ronde.</p>
-
-          <fieldset class="opts" data-reveal>
-            <legend>Métal</legend>
-            <label><input type="radio" name="metal" value="argent" checked><span><b style="--c:#c7cbc8"></b>Argent</span></label>
-            <label><input type="radio" name="metal" value="or-jaune"><span><b style="--c:#c9a24a"></b>Or jaune</span></label>
-            <label><input type="radio" name="metal" value="or-rose"><span><b style="--c:#c98f7a"></b>Or rose</span></label>
-          </fieldset>
-          <fieldset class="opts" data-reveal>
-            <legend>Finition</legend>
-            <label><input type="radio" name="finish" value="poli" checked><span>Poli miroir</span></label>
-            <label><input type="radio" name="finish" value="martele"><span>Martelé</span></label>
-            <label><input type="radio" name="finish" value="texture"><span>Texturé</span></label>
-          </fieldset>
-          <fieldset class="opts" data-reveal>
-            <legend>Pierre</legend>
-            <label><input type="radio" name="stone" value="grenat" checked><span><b style="--c:#7e1d26"></b>Grenat</span></label>
-            <label><input type="radio" name="stone" value="opale"><span><b style="--c:#2f9c86"></b>Opale</span></label>
-            <label><input type="radio" name="stone" value="peridot"><span><b style="--c:#6f8d2c"></b>Péridot</span></label>
-            <label><input type="radio" name="stone" value="diamant"><span><b style="--c:#d9e3e4"></b>Diamant</span></label>
-            <label><input type="radio" name="stone" value="aucune"><span>Sans pierre</span></label>
-          </fieldset>
-          <fieldset class="opts" id="opt-cut" data-reveal>
-            <legend>Taille</legend>
-            <label><input type="radio" name="cut" value="ronde" checked><span>Ronde</span></label>
-            <label><input type="radio" name="cut" value="ovale"><span>Ovale</span></label>
-            <label><input type="radio" name="cut" value="emeraude"><span>Émeraude</span></label>
-          </fieldset>
-          <p class="maker__note" data-reveal>Ce n'est qu'un point de départ. La largeur, la gravure, la pierre exacte&nbsp;: tout se décide ensemble.</p>
-        </div>
-
-        <div class="maker__actions">
-          <a class="cell cell--accent" id="maker-send" href="mailto:atelier@mortier.ca?subject=Une%20pi%C3%A8ce%20sur%20mesure">Demander cette pièce</a>
-          <a class="cell" href="https://www.instagram.com/bijoux_mortier/" target="_blank" rel="noopener">Écrire sur Instagram</a>
-        </div>
-      </form>
-    </section>
-
-    <!-- 6. L'atelier -->
+    <!-- 5. L'atelier, en une phrase -->
     <section class="about" id="atelier" aria-label="L'atelier">
-      <div class="about__grid">
-        <ul class="about__facts" data-reveal>
-          <li>Sur rendez-vous</li>
-          <li>Tout est fait à la main</li>
-          <li><a href="https://www.instagram.com/bijoux_mortier/" target="_blank" rel="noopener">@bijoux_mortier</a></li>
-        </ul>
-        <div class="about__text">
-          <p data-reveal><img class="about__pic" src="img/bague-grenat.jpg" width="750" height="821" alt="Un solitaire grenat posé sur l'établi de l'atelier" loading="lazy" decoding="async"><strong>Mortier</strong> est un atelier de joaillerie où tout se fait à l'établi&nbsp;: le dessin, la fonte, le sertissage, le polissage. On n'y garde aucun stock. Chaque pièce commence par une conversation et se termine entre vos mains.</p>
-          <p class="about__more" data-reveal>Vous pouvez apporter vos propres pierres, ou l'or d'un bijou de famille&nbsp;: on le refond pour lui donner une seconde vie.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 7. Questions -->
-    <section class="faq" id="questions" aria-labelledby="faq-titre">
-      <h2 class="faq__title" id="faq-titre" data-reveal>Avant de commencer</h2>
-      <div class="faq__list">
-        <details data-reveal>
-          <summary>Combien de temps faut-il pour une pièce&nbsp;?</summary>
-          <div class="faq__a"><p>En général, six à huit semaines entre la première rencontre et la remise. Pour une date précise, des fiançailles ou un mariage, dites-le dès le départ et on planifie à rebours.</p></div>
-        </details>
-        <details data-reveal>
-          <summary>Combien coûte une pièce sur mesure&nbsp;?</summary>
-          <div class="faq__a"><p>Le prix dépend du métal, des pierres et du temps de travail. Vous recevez un devis détaillé avec le dessin, avant que quoi que ce soit soit fabriqué.</p></div>
-        </details>
-        <details data-reveal>
-          <summary>Puis-je fournir mes pierres ou mon or&nbsp;?</summary>
-          <div class="faq__a"><p>Oui. Une pierre héritée, l'or d'une ancienne bague&nbsp;: on évalue ensemble ce qui peut être réutilisé, et comment.</p></div>
-        </details>
-        <details data-reveal>
-          <summary>Comment connaître ma taille de bague&nbsp;?</summary>
-          <div class="faq__a"><p>On la mesure à l'atelier. À distance, on vous explique comment la prendre, et un ajustement reste possible après la remise.</p></div>
-        </details>
-        <details data-reveal>
-          <summary>Peut-on tout faire à distance&nbsp;?</summary>
-          <div class="faq__a"><p>Oui. La rencontre se fait en visio, les dessins arrivent par courriel et la pièce vous est envoyée assurée, ou remise en main propre.</p></div>
-        </details>
-        <details data-reveal>
-          <summary>Comment entretenir mon bijou&nbsp;?</summary>
-          <div class="faq__a"><p>Un chiffon doux et un peu d'eau tiède savonneuse suffisent. L'atelier peut repolir votre pièce sur demande.</p></div>
-        </details>
-      </div>
-    </section>
-
-    <!-- 8. Contact : l'adresse courriel comme titre -->
-    <section class="contact" id="contact" aria-label="Contact">
-      <p class="contact__lead" data-reveal>Racontez-nous la pièce que vous imaginez.</p>
-      <a class="contact__mail" href="mailto:atelier@mortier.ca?subject=Une%20pi%C3%A8ce%20sur%20mesure" data-reveal>atelier@<br class="br-phone">mortier.ca</a>
-      <div class="contact__foot">
-        <p>Sur rendez-vous seulement</p>
-        <p><a href="https://www.instagram.com/bijoux_mortier/" target="_blank" rel="noopener">Instagram</a></p>
-      </div>
+      <p class="about__text" data-reveal>Le mortier tient la pierre. Chaque pièce est façonnée à l'établi, puis elle part. Aucune ne se refait.</p>
     </section>
   </main>
 
   <footer class="foot">
-    <p class="foot__name" aria-hidden="true">Mortier</p>
+    <p class="foot__name" aria-hidden="true"><span>M</span><span>o</span><span>r</span><span>t</span><span>i</span><span>e</span><span>r</span></p>
     <div class="foot__row">
-      <ul class="foot__places">
-        <li><a href="mailto:atelier@mortier.ca">atelier@mortier.ca</a></li>
-        <li><a href="https://www.instagram.com/bijoux_mortier/" target="_blank" rel="noopener">@bijoux_mortier</a></li>
-      </ul>
-      <nav class="foot__links" aria-label="Pied de page">
-        <ul>
-          <li><a href="#pieces">Pièces</a></li>
-          <li><a href="#composer">Sur mesure</a></li>
-          <li><a href="#atelier">Atelier</a></li>
-        </ul>
-        <ul>
-          <li><a href="#questions">Questions</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+      <a href="https://www.instagram.com/bijoux_mortier/" target="_blank" rel="noopener">@bijoux_mortier</a>
+      <a href="mailto:atelier@mortier.ca">atelier@mortier.ca</a>
     </div>
     <div class="foot__legal">
       <p>© 2026 Mortier. Toutes les pièces photographiées sont des créations de l’atelier.</p>
@@ -286,7 +164,17 @@
     </div>
   </footer>
 
-  <script src="js/pieces.js"></script>
+  <!-- Visionneuse -->
+  <dialog class="viewer" id="viewer" aria-label="Visionneuse">
+    <figure>
+      <img id="viewer-img" src="" alt="">
+      <figcaption><span id="viewer-name"></span><span id="viewer-count"></span></figcaption>
+    </figure>
+    <button type="button" class="viewer__btn viewer__prev" aria-label="Pièce précédente"><span aria-hidden="true">←</span></button>
+    <button type="button" class="viewer__btn viewer__next" aria-label="Pièce suivante"><span aria-hidden="true">→</span></button>
+    <button type="button" class="viewer__close" aria-label="Fermer">Fermer</button>
+  </dialog>
+
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -9,8 +9,7 @@ publiez le dossier tel quel sur n'importe quel hébergeur statique (GitHub Pages
 ```
 index.html        la page
 css/styles.css    les styles (couleurs et tailles réglées en haut du fichier, dans :root)
-js/main.js        l'ouverture épinglée, les apparitions au défilement, le configurateur
-js/pieces.js      les dessins de bijoux du configurateur (SVG générés)
+js/main.js        l'ouverture épinglée, la loupe, les filtres, la visionneuse, les animations
 img/              les photos des pièces
 fonts/            Bodoni Moda et Jost, hébergées localement (licence SIL OFL)
 ```
@@ -18,12 +17,12 @@ fonts/            Bodoni Moda et Jost, hébergées localement (licence SIL OFL)
 ## La page, dans l'ordre
 
 1. **Ouverture** : le nom MORTIER reste épinglé pendant que trois pièces se relaient dessous.
-2. **L'idée** : le mortier, ce qui tient la pierre.
-3. **Pièces** : le mur de photos.
-4. **De l'idée à la pièce** : les étapes d'une commande, présentées comme un bon de commande.
-5. **Composez la vôtre** : on choisit le type, le métal, la finition, la pierre et sa taille ;
-   le dessin suit, et « Demander cette pièce » ouvre un courriel déjà rempli avec ces choix.
-6. **L'atelier**, 7. **Questions**, 8. **Contact**, puis le pied de page.
+2. **Matières** : une ligne qui défile (argent martelé, grenat, opale…).
+3. **Cinq pièces** : un chapitre par pièce, avec une loupe qui grossit la photo sous le pointeur
+   (appui long sur téléphone).
+4. **Collection** : toutes les pièces, avec des filtres par type et une visionneuse plein écran
+   (flèches du clavier, balayage sur téléphone).
+5. **L'atelier**, puis le pied de page.
 
 ## Changer une photo
 
@@ -34,9 +33,7 @@ Pour les photos de l'ouverture, utilisez un format portrait 2:3.
 
 Ces contenus sont des exemples à vérifier ou à remplacer :
 
-- l'adresse courriel `atelier@mortier.ca`, utilisée dans le configurateur, la section Contact et le pied de page ;
+- l'adresse courriel `atelier@mortier.ca`, dans le pied de page ;
 - le nom et le métal indiqués sous chaque photo ;
-- les durées des étapes (6 à 8 semaines au total) ;
-- les réponses de la section Questions : pierres fournies, refonte d'or, travail à distance, entretien ;
-- le texte de l'atelier, et la mention « Sur rendez-vous » ;
-- les choix du configurateur, à savoir les métaux, les finitions et les pierres proposés.
+- les descriptions, matières et finitions des cinq pièces mises en avant ;
+- le classement des pièces dans les filtres (bagues, joncs, chevalières, colliers et pendentifs).
