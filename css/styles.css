@@ -7,6 +7,7 @@
 @font-face { font-family: "Jost"; src: url("../fonts/jost-latin-500-normal.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
 
 :root {
+  color-scheme: dark;
   --bg: #161c1a;
   --surface: #1f2725;
   --surface-2: #26302d;
