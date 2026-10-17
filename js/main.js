@@ -90,43 +90,6 @@
     items.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  // 3. La loupe : grossit la photo sous le pointeur (souris, ou doigt posé et glissé).
-  loupes.forEach(function (l) {
-    var img = l.querySelector('img');
-    var lens = document.createElement('div');
-    lens.className = 'lens';
-    lens.style.backgroundImage = 'url("' + img.currentSrc + '")';
-    l.appendChild(lens);
-    var zoom = 2.4;
-    function move(e) {
-      var r = l.getBoundingClientRect();
-      var ir = img.getBoundingClientRect();
-      var x = e.clientX - r.left, y = e.clientY - r.top;
-      lens.style.left = x + 'px';
-      lens.style.top = y + 'px';
-      lens.style.backgroundImage = 'url("' + (img.currentSrc || img.src) + '")';
-      lens.style.backgroundSize = (ir.width * zoom) + 'px ' + (ir.height * zoom) + 'px';
-      var bx = (e.clientX - ir.left) * zoom - lens.offsetWidth / 2;
-      var by = (e.clientY - ir.top) * zoom - lens.offsetHeight / 2;
-      lens.style.backgroundPosition = (-bx) + 'px ' + (-by) + 'px';
-    }
-    var timer = null;
-    l.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { l.classList.add('is-looking'); move(e); } });
-    l.addEventListener('pointermove', function (e) { if (l.classList.contains('is-looking')) move(e); });
-    l.addEventListener('pointerleave', function () { l.classList.remove('is-looking'); });
-    // Au toucher : appui long pour sortir la loupe.
-    l.addEventListener('pointerdown', function (e) {
-      if (e.pointerType === 'mouse') return;
-      timer = setTimeout(function () { l.classList.add('is-looking'); l.style.touchAction = 'none'; move(e); }, 220);
-    });
-    ['pointerup', 'pointercancel'].forEach(function (ev) {
-      l.addEventListener(ev, function (e) {
-        if (e.pointerType === 'mouse') return;
-        clearTimeout(timer); l.classList.remove('is-looking'); l.style.touchAction = '';
-      });
-    });
-  });
-
   // 4. Collection : filtres, inclinaison au survol, visionneuse.
   var cards = [].slice.call(document.querySelectorAll('.card'));
   var buttons = [].slice.call(document.querySelectorAll('.filters button'));
