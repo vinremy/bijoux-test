@@ -21,7 +21,16 @@ fonts/            Bodoni Moda et Jost, hébergées localement (licence SIL OFL)
 3. **Cinq pièces** : un chapitre par pièce, avec une photo qui se dévoile et bouge au défilement.
 4. **Collection** : toutes les pièces, avec des filtres par type et une visionneuse plein écran
    (flèches du clavier, balayage sur téléphone).
-5. **L'atelier**, puis le pied de page.
+5. **Me contacter** : un formulaire (nom, courriel, sujet, message), puis le pied de page.
+
+## Recevoir les messages du formulaire
+
+Par défaut, « Envoyer » ouvre le logiciel de courriel du visiteur avec le message déjà rédigé.
+Pour recevoir les messages directement, sans que le visiteur ait à passer par son logiciel :
+
+1. Créez un formulaire gratuit sur un service comme [Formspree](https://formspree.io).
+2. Copiez l'adresse qu'il vous donne (du type `https://formspree.io/f/xxxxxxx`).
+3. Dans `index.html`, collez-la dans `data-endpoint=""` du formulaire `id="mail"`.
 
 ## Changer une photo
 
@@ -32,7 +41,7 @@ Pour les photos de l'ouverture, utilisez un format portrait 2:3.
 
 Ces contenus sont des exemples à vérifier ou à remplacer :
 
-- l'adresse courriel `atelier@mortier.ca`, dans le pied de page ;
+- l'adresse courriel `atelier@mortier.ca`, dans la section Me contacter (`data-to`) et le pied de page ;
 - le nom et le métal indiqués sous chaque photo ;
 - les descriptions, matières et finitions des cinq pièces mises en avant ;
 - le classement des pièces dans les filtres (bagues, joncs, chevalières, colliers et pendentifs).

@@ -7,14 +7,6 @@
   // Lettres du nom : chacune reçoit son rang pour l'entrée en cascade.
   document.querySelectorAll('.hero__title span, .foot__name span').forEach(function (s, k) { s.style.setProperty('--k', k % 7); });
 
-  // Phrase de l'atelier : mot par mot.
-  var about = document.querySelector('.about__text');
-  if (about) {
-    about.innerHTML = about.textContent.trim().split(/\s+/).map(function (w, k) {
-      return '<span class="w" style="--k:' + k + '">' + w + '</span>';
-    }).join(' ');
-  }
-
   // 1. Ouverture épinglée
   var hero = document.querySelector('.hero');
   var stage = hero.querySelector('.hero__stage');
@@ -156,4 +148,71 @@
     if (Math.abs(dx) > 50) show(pos + (dx < 0 ? 1 : -1));
     sx = null;
   });
+
+  // 5. Me contacter : vérifie le formulaire, puis envoie le message.
+  var mail = document.getElementById('mail');
+  if (mail) {
+    var msg = document.getElementById('mail-message');
+    var count = document.getElementById('mail-count');
+    var status = document.getElementById('mail-status');
+    var btn = mail.querySelector('.mail__btn');
+    msg.maxLength = 1000;
+    msg.addEventListener('input', function () { count.textContent = msg.value.length + ' / 1000'; });
+    mail.querySelectorAll('input, textarea').forEach(function (f) {
+      f.addEventListener('input', function () { f.closest('.field').classList.remove('is-bad'); });
+    });
+
+    mail.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = null;
+      ['mail-nom', 'mail-courriel', 'mail-message'].forEach(function (id) {
+        var f = document.getElementById(id);
+        var ok = f.value.trim() !== '' && (f.type !== 'email' || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim()));
+        f.closest('.field').classList.toggle('is-bad', !ok);
+        if (!ok && !bad) bad = f;
+      });
+      if (bad) {
+        status.classList.remove('is-ok');
+        status.textContent = bad.id === 'mail-courriel' && bad.value ? 'Cette adresse courriel ne semble pas valide.' : 'Il manque un champ : ' + bad.previousElementSibling.textContent.toLowerCase() + '.';
+        bad.focus();
+        return;
+      }
+      var data = {
+        nom: document.getElementById('mail-nom').value.trim(),
+        courriel: document.getElementById('mail-courriel').value.trim(),
+        sujet: mail.querySelector('input[name="sujet"]:checked').value,
+        message: msg.value.trim()
+      };
+      var endpoint = mail.getAttribute('data-endpoint');
+      var done = function () {
+        mail.classList.add('is-sent');
+        status.classList.add('is-ok');
+        btn.disabled = false;
+      };
+
+      if (endpoint) {
+        // Envoi direct par un service de formulaires (Formspree ou équivalent).
+        btn.disabled = true;
+        status.classList.remove('is-ok');
+        status.textContent = 'Envoi en cours…';
+        fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+          .then(function (r) {
+            if (!r.ok) throw new Error();
+            done(); mail.reset(); count.textContent = '0 / 1000';
+            status.textContent = 'Merci ' + data.nom + ', votre message est bien parti. Je vous réponds rapidement.';
+          })
+          .catch(function () {
+            btn.disabled = false;
+            status.textContent = "Le message n'a pas pu partir. Réessayez, ou écrivez directement à " + mail.getAttribute('data-to') + '.';
+          });
+      } else {
+        // Sans service : ouvre le logiciel de courriel avec le message déjà rédigé.
+        var body = data.message + '\n\n— ' + data.nom + ' (' + data.courriel + ')';
+        window.location.href = 'mailto:' + mail.getAttribute('data-to') +
+          '?subject=' + encodeURIComponent(data.sujet + ' — ' + data.nom) + '&body=' + encodeURIComponent(body);
+        done();
+        status.textContent = "Votre logiciel de courriel s'ouvre avec le message prêt. Il ne reste qu'à l'envoyer.";
+      }
+    });
+  }
 })();

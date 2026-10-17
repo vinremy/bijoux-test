@@ -25,7 +25,7 @@
         <nav class="bar__nav" aria-label="Navigation principale">
           <a href="#pieces">Pièces</a>
           <a href="#collection">Collection</a>
-          <a href="#atelier">Atelier</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -145,9 +145,44 @@
       </div>
     </section>
 
-    <!-- 5. L'atelier, en une phrase -->
-    <section class="about" id="atelier" aria-label="L'atelier">
-      <p class="about__text" data-reveal>Le mortier tient la pierre. Chaque pièce est façonnée à l'établi, puis elle part. Aucune ne se refait.</p>
+    <!-- 5. Me contacter -->
+    <section class="contact" id="contact" aria-labelledby="contact-titre">
+      <div class="contact__intro">
+        <h2 class="contact__title" id="contact-titre" data-reveal>Me contacter</h2>
+        <p data-reveal>Une question sur une pièce, une idée à partager&nbsp;? Écrivez-moi, je réponds personnellement.</p>
+        <p class="contact__direct" data-reveal>Ou directement&nbsp;: <a href="mailto:atelier@mortier.ca">atelier@mortier.ca</a></p>
+      </div>
+
+      <!-- data-endpoint : collez ici l'adresse d'un service d'envoi (ex. Formspree) pour recevoir les messages sans ouvrir le logiciel de courriel. -->
+      <form class="mail" id="mail" data-to="atelier@mortier.ca" data-endpoint="" novalidate data-reveal>
+        <div class="mail__row">
+          <div class="field">
+            <label for="mail-nom">Nom</label>
+            <input id="mail-nom" name="nom" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="mail-courriel">Courriel</label>
+            <input id="mail-courriel" name="courriel" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field__label" id="sujet-label">Sujet</span>
+          <div class="chips" role="radiogroup" aria-labelledby="sujet-label">
+            <label><input type="radio" name="sujet" value="Une pièce de la collection" checked><span>Une pièce de la collection</span></label>
+            <label><input type="radio" name="sujet" value="Une idée de pièce"><span>Une idée de pièce</span></label>
+            <label><input type="radio" name="sujet" value="Autre chose"><span>Autre chose</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mail-message">Message</label>
+          <textarea id="mail-message" name="message" rows="5" required></textarea>
+          <span class="field__count" id="mail-count" aria-live="polite">0 / 1000</span>
+        </div>
+        <div class="mail__send">
+          <button type="submit" class="mail__btn"><span>Envoyer</span><span aria-hidden="true">→</span></button>
+          <p class="mail__status" id="mail-status" role="status"></p>
+        </div>
+      </form>
     </section>
   </main>
 
