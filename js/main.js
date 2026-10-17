@@ -31,9 +31,6 @@
     nameEl.classList.remove('is-new'); void nameEl.offsetWidth; nameEl.classList.add('is-new');
   }
 
-  // Parallaxe des photos des chapitres
-  var loupes = [].slice.call(document.querySelectorAll('.loupe'));
-
   function onScroll() {
     var vh = window.innerHeight;
     var rect = hero.getBoundingClientRect();
@@ -44,14 +41,6 @@
     var doc = document.documentElement;
     bar.style.setProperty('--p', (window.scrollY / Math.max(1, doc.scrollHeight - vh)).toFixed(4));
 
-    if (!reduce) {
-      loupes.forEach(function (l) {
-        var r = l.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) return;
-        var t = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1 … 1
-        l.querySelector('img').style.setProperty('--py', (-6.5 + t * 6.5).toFixed(2) + '%');
-      });
-    }
   }
   var ticking = false;
   window.addEventListener('scroll', function () {
@@ -81,6 +70,32 @@
   } else {
     items.forEach(function (el) { el.classList.add('is-in'); });
   }
+
+  // 3. Vitrine : survol ou clic sur un nom, ou flèches du clavier.
+  var tabs = [].slice.call(document.querySelectorAll('.showcase__list button'));
+  var shots = [].slice.call(document.querySelectorAll('.showcase__frame img'));
+  var infos = [].slice.call(document.querySelectorAll('.showcase .info'));
+  var scCount = document.getElementById('sc-count');
+  var active = 0;
+  function pick(i) {
+    if (i === active) return;
+    active = i;
+    tabs.forEach(function (t, k) { t.classList.toggle('is-on', k === i); t.setAttribute('aria-selected', k === i); });
+    shots.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+    infos.forEach(function (n, k) { n.hidden = k !== i; n.classList.toggle('is-on', k === i); });
+    scCount.textContent = i + 1;
+  }
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { pick(k); });
+    if (fine) t.addEventListener('mouseenter', function () { pick(k); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowDown' || e.key === 'ArrowRight' ? 1 : e.key === 'ArrowUp' || e.key === 'ArrowLeft' ? -1 : 0;
+      if (!d) return;
+      e.preventDefault();
+      var n = (active + d + tabs.length) % tabs.length;
+      pick(n); tabs[n].focus();
+    });
+  });
 
   // 4. Collection : filtres, inclinaison au survol, visionneuse.
   var cards = [].slice.call(document.querySelectorAll('.card'));

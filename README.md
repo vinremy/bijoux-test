@@ -18,7 +18,7 @@ fonts/            Bodoni Moda et Jost, hébergées localement (licence SIL OFL)
 
 1. **Ouverture** : le nom MORTIER reste épinglé pendant que trois pièces se relaient dessous.
 2. **Matières** : une ligne qui défile (argent martelé, grenat, opale…).
-3. **Cinq pièces** : un chapitre par pièce, avec une photo qui se dévoile et bouge au défilement.
+3. **Cinq pièces** : une vitrine sur un écran ; survoler ou cliquer un nom change la photo et la description.
 4. **Collection** : toutes les pièces, avec des filtres par type et une visionneuse plein écran
    (flèches du clavier, balayage sur téléphone).
 5. **Me contacter** : un formulaire (nom, courriel, sujet, message), puis le pied de page.

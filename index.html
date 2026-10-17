@@ -58,64 +58,48 @@
       </div>
     </div>
 
-    <!-- 3. Cinq pièces, chacune son chapitre -->
+    <!-- 3. Cinq pièces : une vitrine, on choisit la pièce dans la liste -->
     <section class="feature" id="pieces" aria-labelledby="pieces-titre">
       <h2 class="feature__title" id="pieces-titre" data-reveal>Cinq pièces</h2>
-
-      <article class="chapter">
-        <div class="loupe" data-reveal="wipe">
-          <img src="img/jonc-tresse.jpg" width="800" height="842" alt="Jonc en argent martelé, ceint d'une tresse d'argent" loading="lazy">
+      <div class="showcase" data-reveal>
+        <ul class="showcase__list" role="tablist" aria-label="Pièces à la une">
+          <li><button type="button" role="tab" id="tab-0" aria-controls="info-0" aria-selected="true" class="is-on" data-i="0">Jonc à la tresse</button></li>
+          <li><button type="button" role="tab" id="tab-1" aria-controls="info-1" aria-selected="false" data-i="1">Solitaire grenat</button></li>
+          <li><button type="button" role="tab" id="tab-2" aria-controls="info-2" aria-selected="false" data-i="2">Collier hexagones</button></li>
+          <li><button type="button" role="tab" id="tab-3" aria-controls="info-3" aria-selected="false" data-i="3">Pendentif écorce</button></li>
+          <li><button type="button" role="tab" id="tab-4" aria-controls="info-4" aria-selected="false" data-i="4">Double anneau, opale</button></li>
+        </ul>
+        <div class="showcase__frame">
+          <img class="is-on" src="img/jonc-tresse.jpg" width="800" height="842" alt="Jonc en argent martelé, ceint d'une tresse d'argent" loading="eager" decoding="async">
+          <img class="" src="img/bague-grenat.jpg" width="750" height="821" alt="Solitaire en argent serti d'un grenat ovale" loading="lazy" decoding="async">
+          <img class="" src="img/collier-hexagones.jpg" width="713" height="822" alt="Collier articulé d'hexagones en argent sur un buste noir" loading="lazy" decoding="async">
+          <img class="" src="img/pendentif-ecorce.jpg" width="631" height="829" alt="Pendentif en argent dont la face reprend le relief d'une écorce" loading="lazy" decoding="async">
+          <img class="" src="img/bague-opale.jpg" width="785" height="550" alt="Bague à double anneau sertie d'une opale aux reflets verts" loading="lazy" decoding="async">
         </div>
-        <div class="chapter__text">
-          <h3 data-reveal>Jonc à la tresse</h3>
-          <p data-reveal>Un jonc large, martelé à la main, ceint d'une tresse de fil d'argent qui suit tout le tour du doigt.</p>
-          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Martelé, intérieur poli</dd></div></dl>
+        <div class="showcase__info">
+          <div class="info is-on" role="tabpanel" id="info-0" aria-labelledby="tab-0">
+            <p>Un jonc large, martelé à la main, ceint d'une tresse de fil d'argent qui suit tout le tour du doigt.</p>
+            <dl><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Martelé, intérieur poli</dd></div></dl>
+          </div>
+          <div class="info" role="tabpanel" id="info-1" aria-labelledby="tab-1" hidden>
+            <p>Un grenat ovale tenu par une couronne de griffes découpées à même le métal.</p>
+            <dl><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Pierre</dt><dd>Grenat, taille ovale</dd></div></dl>
+          </div>
+          <div class="info" role="tabpanel" id="info-2" aria-labelledby="tab-2" hidden>
+            <p>Des hexagones texturés reliés par des tiges fines. Le collier bouge avec qui le porte.</p>
+            <dl><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Texturé et poli</dd></div></dl>
+          </div>
+          <div class="info" role="tabpanel" id="info-3" aria-labelledby="tab-3" hidden>
+            <p>Un médaillon dont la face reprend le relief d'une écorce, monté sur une bélière polie miroir.</p>
+            <dl><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Relief oxydé, bord poli</dd></div></dl>
+          </div>
+          <div class="info" role="tabpanel" id="info-4" aria-labelledby="tab-4" hidden>
+            <p>Deux anneaux qui s'écartent pour recevoir une opale aux reflets verts, puis se rejoignent.</p>
+            <dl><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Pierre</dt><dd>Opale, taille ovale</dd></div></dl>
+          </div>
         </div>
-      </article>
-
-      <article class="chapter chapter--flip">
-        <div class="loupe" data-reveal="wipe">
-          <img src="img/bague-grenat.jpg" width="750" height="821" alt="Solitaire en argent serti d'un grenat ovale" loading="lazy">
-        </div>
-        <div class="chapter__text">
-          <h3 data-reveal>Solitaire grenat</h3>
-          <p data-reveal>Un grenat ovale tenu par une couronne de griffes découpées à même le métal.</p>
-          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Pierre</dt><dd>Grenat, taille ovale</dd></div></dl>
-        </div>
-      </article>
-
-      <article class="chapter">
-        <div class="loupe" data-reveal="wipe">
-          <img src="img/collier-hexagones.jpg" width="713" height="822" alt="Collier articulé d'hexagones en argent sur un buste noir" loading="lazy">
-        </div>
-        <div class="chapter__text">
-          <h3 data-reveal>Collier hexagones</h3>
-          <p data-reveal>Des hexagones texturés reliés par des tiges fines. Le collier bouge avec qui le porte.</p>
-          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Texturé et poli</dd></div></dl>
-        </div>
-      </article>
-
-      <article class="chapter chapter--flip">
-        <div class="loupe" data-reveal="wipe">
-          <img src="img/pendentif-ecorce.jpg" width="631" height="829" alt="Pendentif en argent dont la face reprend le relief d'une écorce" loading="lazy">
-        </div>
-        <div class="chapter__text">
-          <h3 data-reveal>Pendentif écorce</h3>
-          <p data-reveal>Un médaillon dont la face reprend le relief d'une écorce, monté sur une bélière polie miroir.</p>
-          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Finition</dt><dd>Relief oxydé, bord poli</dd></div></dl>
-        </div>
-      </article>
-
-      <article class="chapter">
-        <div class="loupe loupe--wide" data-reveal="wipe">
-          <img src="img/bague-opale.jpg" width="785" height="550" alt="Bague à double anneau sertie d'une opale aux reflets verts" loading="lazy">
-        </div>
-        <div class="chapter__text">
-          <h3 data-reveal>Double anneau, opale</h3>
-          <p data-reveal>Deux anneaux qui s'écartent pour recevoir une opale aux reflets verts, puis se rejoignent.</p>
-          <dl data-reveal><div><dt>Matière</dt><dd>Argent</dd></div><div><dt>Pierre</dt><dd>Opale, taille ovale</dd></div></dl>
-        </div>
-      </article>
+        <p class="showcase__count" aria-hidden="true"><span id="sc-count">1</span> / 5</p>
+      </div>
     </section>
 
     <!-- 4. Toute la collection : filtres et visionneuse -->

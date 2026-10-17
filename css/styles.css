@@ -191,28 +191,63 @@ button, input { font: inherit; color: inherit; }
   font-size: var(--step-head); line-height: 0.9; letter-spacing: -0.035em;
 }
 
-.chapter {
+.showcase {
   display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--m);
-  align-items: end; margin-top: clamp(72px, 10vw, 160px);
+  align-items: center; margin-top: clamp(32px, 4vw, 56px);
+  min-height: min(76svh, 760px);
+  position: relative;
 }
-.chapter .loupe { grid-column: 1 / 7; }
-.chapter__text { grid-column: 8 / 12; padding-bottom: 8px; }
-.chapter--flip .loupe { grid-column: 7 / 13; grid-row: 1; }
-.chapter--flip .chapter__text { grid-column: 2 / 6; grid-row: 1; }
-.chapter h3 { font-family: var(--display); font-weight: 500; font-size: var(--step-lead); line-height: 1.1; letter-spacing: -0.01em; }
-.chapter p { margin-top: 16px; max-width: 34ch; }
-.chapter dl { margin: 28px 0 0; display: grid; gap: 12px; }
-.chapter dt { font-size: var(--step-small); color: var(--muted); }
-.chapter dd { margin: 0; }
+.showcase__list { grid-column: 1 / 5; display: flex; flex-direction: column; gap: 6px; }
+.showcase__list button {
+  border: 0; background: none; padding: 6px 0; cursor: pointer; text-align: left;
+  font-family: var(--display); font-weight: 500; font-size: var(--step-lead); line-height: 1.15; letter-spacing: -0.01em;
+  color: var(--muted);
+  display: inline-flex; align-items: center; gap: 0;
+  transition: color var(--t-ui) ease, transform var(--t-ui) var(--ease-out), gap var(--t-ui) var(--ease-out);
+}
+.showcase__list button::before {
+  content: ""; width: 0; height: 2px; background: var(--accent); flex: none;
+  transition: width var(--t-ui) var(--ease-out);
+}
+.showcase__list button:hover { color: var(--ink); }
+.showcase__list button.is-on { color: var(--ink); gap: 16px; }
+.showcase__list button.is-on::before { width: 36px; }
 
-.loupe { position: relative; overflow: hidden; aspect-ratio: 4 / 5; width: 100%; background: var(--surface); }
-.loupe--wide { aspect-ratio: 3 / 2; }
-.loupe img { width: 100%; height: 115%; object-fit: cover; transform: translateY(var(--py, -6%)); will-change: transform; }
+.showcase__frame {
+  grid-column: 5 / 9; position: relative;
+  aspect-ratio: 4 / 5; height: min(72svh, 640px); max-width: 100%; justify-self: center;
+  background: var(--surface); overflow: hidden;
+}
+.showcase__frame img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0; transform: scale(1.06);
+  transition: opacity 600ms ease, transform 1200ms var(--ease-out);
+}
+.showcase__frame img.is-on { opacity: 1; transform: scale(1); }
+@media (prefers-reduced-motion: reduce) { .showcase__frame img { transition: opacity 200ms ease; transform: none; } }
 
-@media (max-width: 860px) {
-  .chapter { grid-template-columns: 1fr; margin-top: 72px; }
-  .chapter .loupe, .chapter--flip .loupe, .chapter__text, .chapter--flip .chapter__text { grid-column: 1; grid-row: auto; }
-  .chapter__text { padding-top: 20px; }
+.showcase__info { grid-column: 9 / 13; display: grid; }
+.info { grid-area: 1 / 1; }
+.info[hidden] { display: none; }
+.info.is-on { animation: fade-up 600ms var(--ease-out); }
+.info h3 { font-family: var(--display); font-weight: 500; font-size: var(--step-lead); line-height: 1.1; letter-spacing: -0.01em; }
+.info p { max-width: 34ch; font-size: var(--step-body); }
+.info dl { margin: 28px 0 0; display: grid; gap: 12px; }
+.info dt { font-size: var(--step-small); color: var(--muted); }
+.info dd { margin: 0; }
+.showcase__count { position: absolute; right: 0; bottom: 0; font-size: var(--step-small); color: var(--muted); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 900px) {
+  .showcase { grid-template-columns: minmax(0, 1fr); row-gap: 24px; min-height: 0; }
+  .showcase__list, .showcase__frame, .showcase__info { grid-column: 1; }
+  .showcase__frame { grid-row: 1; height: auto; width: 100%; }
+  .showcase__list { grid-row: 2; flex-direction: row; overflow-x: auto; gap: 8px; scroll-snap-type: x mandatory; margin-inline: calc(var(--m) * -1); padding-inline: var(--m); }
+  .showcase__list li { flex: none; scroll-snap-align: start; }
+  .showcase__list button { font-family: var(--text); font-size: var(--step-small); color: var(--ink); background: var(--surface); min-height: 44px; padding: 0 16px; white-space: nowrap; }
+  .showcase__list button::before { display: none; }
+  .showcase__list button.is-on { background: var(--ink); color: var(--bg); gap: 0; }
+  .showcase__info { grid-row: 3; }
+  .showcase__count { position: static; grid-row: 4; }
 }
 
 /* ---------- 4. Collection ---------- */
