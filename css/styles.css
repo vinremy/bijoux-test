@@ -313,7 +313,8 @@ button, input { font: inherit; color: inherit; }
 .stage--creative img { width: auto; height: min(70svh, 600px); max-width: 100%; object-fit: contain; }
 .plan { width: 100%; height: auto; max-height: 76svh; overflow: visible; }
 .plan path, .plan polygon, .plan circle, .plan rect { fill: none; stroke: var(--paper-ink); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
-.plan__line path { stroke-width: 1.25; opacity: 0.6; }
+.plan__line .thin { stroke-width: 1.25; opacity: 0.6; }
+.plan .plan__section { fill: #cfcec5; }
 .plan__dim path { stroke: #5c7a6f; stroke-width: 1.5; }
 .plan text { fill: var(--paper-ink); font-family: var(--text); font-size: 17px; letter-spacing: 0.02em; }
 .plan__dim text { fill: #3c6b5b; font-weight: 500; }

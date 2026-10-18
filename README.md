@@ -53,7 +53,7 @@ Pour le hero, une photo sur fond blanc fonctionne le mieux : le blanc se fond da
 Ces contenus sont des exemples à vérifier ou à remplacer :
 
 - l'adresse courriel `atelier@mortier.ca`, dans la section Get in touch (`data-to`) et le pied de page ;
-- les cotes du dessin technique (21 mm, 17,5 mm, 8 mm, rainures de 1 mm) : estimées d'après le croquis à la gouache ;
+- les cotes du dessin technique (21 mm, 17,5 mm, 8 mm, 1,75 mm au centre ; profil bombé à trois côtes) : estimées d'après le croquis à la gouache ;
 - les noms des pièces : seul Collision Stellaire vient de vous, les autres sont descriptifs ;
 - les descriptions, matières et finitions des pièces ;
 - le classement des pièces dans les filtres.
