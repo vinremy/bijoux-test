@@ -7,26 +7,37 @@ publiez le dossier tel quel sur n'importe quel hébergeur statique (GitHub Pages
 ## Structure
 
 ```
-index.html        la page
+index.html        la page d'accueil : l'artiste et sa démarche, avec un aperçu des pièces
+work.html         la page des pièces : Constellations, pièces choisies, toutes les pièces
 css/styles.css    les styles (couleurs et tailles réglées en haut du fichier, dans :root)
-js/main.js        l'ouverture épinglée, les filtres, la visionneuse, les animations
-img/              les photos des pièces
+js/main.js        les animations et interactions des deux pages
+img/              les photos
 fonts/            Bodoni Moda et Jost, hébergées localement (licence SIL OFL)
 ```
 
-## La page, dans l'ordre
+Le site est en anglais.
 
-1. **Ouverture** : le nom MORTIER reste épinglé pendant que trois pièces se relaient dessous.
-2. **Matières** : une ligne qui défile (argent sterling, Constellations, géométrie…).
-3. **Cinq pièces** : une vitrine sur un écran ; survoler ou cliquer un nom change la photo et la description.
-4. **Du croquis à la pièce** : croquis à la gouache et photos d'établi, en rangée qu'on fait glisser.
-5. **Collection** : toutes les pièces (12 d'abord, puis « Voir les 28 pièces »), avec des filtres par type et une visionneuse plein écran
-   (flèches du clavier, balayage sur téléphone).
-6. **Me contacter** : un formulaire (nom, courriel, sujet, message), puis le pied de page.
+## Accueil (index.html)
+
+1. **Hero** : le nom MORTIER et les quatre anneaux facettés, sur fond papier.
+2. **About me** : présentation, compétences, formation.
+3. **From observation to form** : les croquis à la gouache, en rangée qu'on fait glisser.
+4. **Technical drawings** : un dessin technique qui se trace au défilement ; les cotes s'allument au survol.
+5. **Materials and techniques** : quatre gestes d'établi.
+6. **Workshop** : l'atelier.
+7. **Selected work** : quatre pièces, avec un lien vers la page des pièces.
+8. **Amsterdam** : la ville et les objectifs.
+9. **Get in touch** : le formulaire de contact.
+
+## Pièces (work.html)
+
+1. **Constellations** : la collection de fin d'études, Couronne Boréale et Collision Stellaire en détail.
+2. **Selected pieces** : cinq pièces avec leur description. Un lien comme `work.html#pearl-ring` ouvre directement la pièce.
+3. **Every piece** : les 28 pièces, avec filtres et visionneuse plein écran.
 
 ## Recevoir les messages du formulaire
 
-Par défaut, « Envoyer » ouvre le logiciel de courriel du visiteur avec le message déjà rédigé.
+Par défaut, « Send » ouvre le logiciel de courriel du visiteur avec le message déjà rédigé.
 Pour recevoir les messages directement, sans que le visiteur ait à passer par son logiciel :
 
 1. Créez un formulaire gratuit sur un service comme [Formspree](https://formspree.io).
@@ -36,13 +47,14 @@ Pour recevoir les messages directement, sans que le visiteur ait à passer par s
 ## Changer une photo
 
 Déposez la photo dans `img/`, puis remplacez le nom du fichier dans `index.html`.
-Pour les photos de l'ouverture, utilisez un format portrait 2:3.
+Pour le hero, une photo sur fond blanc fonctionne le mieux : le blanc se fond dans le papier de la page.
 
 ## À confirmer avant la mise en ligne
 
 Ces contenus sont des exemples à vérifier ou à remplacer :
 
-- l'adresse courriel `atelier@mortier.ca`, dans la section Me contacter (`data-to`) et le pied de page ;
+- l'adresse courriel `atelier@mortier.ca`, dans la section Get in touch (`data-to`) et le pied de page ;
+- les cotes du dessin technique (22 mm, 18 mm, 5 mm), reprises du portfolio ;
 - les noms des pièces : seuls Collier Couronne Boréale et Bracelet Collision Stellaire viennent de vous, les autres sont descriptifs ;
-- les descriptions, matières et finitions des cinq pièces mises en avant ;
-- le classement des pièces dans les filtres (bagues, joncs, chevalières, colliers et pendentifs).
+- les descriptions, matières et finitions des pièces ;
+- le classement des pièces dans les filtres.

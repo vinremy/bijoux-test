@@ -1,203 +1,220 @@
 <!doctype html>
-<html lang="fr-CA">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mortier — Bijoux faits main</title>
-  <meta name="description" content="Mortier : les bijoux de Mathis Mortier d'Aumont, artiste joaillier. Pièces uniques en argent sterling, d'une géométrie inspirée de la nature.">
-  <meta name="theme-color" content="#161c1a">
+  <title>Mortier — Mathis Mortier d’Aumont, jeweler</title>
+  <meta name="description" content="Mortier is the work of Mathis Mortier d’Aumont, goldsmith and bench jeweler. One-off pieces in sterling silver, built on a geometric aesthetic drawn from nature.">
+  <meta name="theme-color" content="#e3e2da">
   <link rel="preload" href="fonts/bodoni-moda-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="img/solitaire-couronne-portrait.jpg" as="image">
+  <link rel="preload" href="img/anneaux-facettes.jpg" as="image">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23161c1a'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-family='serif' font-size='40' fill='%23e3e2da'%3EM%3C/text%3E%3C/svg%3E">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
-  <a class="skip" href="#contenu">Aller au contenu</a>
+  <a class="skip" href="#content">Skip to content</a>
   <div class="progress" aria-hidden="true"><i></i></div>
 
-  <!-- 1. Le nom épinglé : les pièces se relaient dessous -->
-  <section class="hero" id="haut" aria-label="Mortier">
-    <div class="hero__stage">
-      <header class="bar">
-        <a class="bar__mark" href="#haut" aria-label="Mortier, retour en haut"><span class="bar__word">Mortier</span><span class="bar__mono" aria-hidden="true">M</span></a>
-        <nav class="bar__nav" aria-label="Navigation principale">
-          <a href="#pieces">Pièces</a>
-          <a href="#collection">Collection</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
-
-      <div class="hero__frames">
-        <figure class="frame is-on" data-page="#1e1e1d" data-name="Solitaire couronne">
-          <img src="img/solitaire-couronne-portrait.jpg" width="933" height="1400" alt="Bague solitaire en argent, pierre ambrée tenue par une couronne de griffes" fetchpriority="high">
-        </figure>
-        <figure class="frame" data-page="#1c251c" data-name="Pendentif spirale">
-          <img src="img/pendentif-spirale-portrait.jpg" width="720" height="1080" alt="Pendentif en argent enroulé en spirale, posé sur une feuille" loading="lazy">
-        </figure>
-        <figure class="frame" data-page="#151312" data-name="Pendentif arbre">
-          <img src="img/pendentif-arbre-portrait.jpg" width="933" height="1400" alt="Médaillon en argent ajouré d'un arbre, tenu dans la main" loading="lazy">
-        </figure>
-      </div>
-
-      <h1 class="hero__title" aria-label="Mortier"><span>M</span><span>o</span><span>r</span><span>t</span><span>i</span><span>e</span><span>r</span></h1>
-
-      <p class="hero__line">Bijoux en argent sterling, d'une géométrie inspirée de la nature.</p>
-      <p class="hero__now" aria-live="polite"><span class="hero__count">1 / 3</span><span class="hero__name">Solitaire couronne</span></p>
+  <!-- 1. Hero: the name, and one piece -->
+  <header class="hero" id="top">
+    <div class="bar">
+      <a class="bar__mark" href="#top" aria-label="Mortier, back to top"><span class="bar__word">Mortier</span><span class="bar__mono" aria-hidden="true">M</span></a>
+      <nav class="bar__nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="work.html">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </section>
+    <h1 class="hero__title" aria-label="Mortier"><span>M</span><span>o</span><span>r</span><span>t</span><span>i</span><span>e</span><span>r</span></h1>
+    <figure class="hero__piece">
+      <img src="img/anneaux-facettes.jpg" width="1513" height="560" alt="Four faceted sterling silver rings standing in a row" fetchpriority="high">
+    </figure>
+    <p class="hero__line">Jewelry by Mathis Mortier d’Aumont. Sterling silver, shaped by geometry found in nature.</p>
+    <p class="hero__role">Goldsmith<br>Bench jeweler</p>
+  </header>
 
-  <main id="contenu">
+  <main id="content">
 
-    <!-- 2. Les matières, en défilement -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee__track">
-        <span>Argent sterling</span><span>Constellations</span><span>Géométrie</span><span>Grenat</span><span>Perles</span><span>Martelé</span><span>Saphir étoilé</span><span>Poli miroir</span>
-        <span>Argent sterling</span><span>Constellations</span><span>Géométrie</span><span>Grenat</span><span>Perles</span><span>Martelé</span><span>Saphir étoilé</span><span>Poli miroir</span>
+    <!-- 2. About me -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about__pic" data-reveal="wipe">
+        <img src="img/etabli-sertissure.jpg" width="900" height="1200" alt="A silver crown setting held on a ring mandrel at the bench" loading="lazy" decoding="async">
       </div>
-    </div>
-
-    <!-- 3. Cinq pièces : une vitrine, on choisit la pièce dans la liste -->
-    <section class="feature" id="pieces" aria-labelledby="pieces-titre">
-      <h2 class="feature__title" id="pieces-titre" data-reveal>Cinq pièces</h2>
-      <div class="showcase" data-reveal>
-        <ul class="showcase__list" role="tablist" aria-label="Pièces à la une">
-          <li><button type="button" role="tab" id="tab-0" aria-controls="info-0" aria-selected="true" class="is-on" data-i="0">Collier Couronne Boréale</button></li>
-          <li><button type="button" role="tab" id="tab-1" aria-controls="info-1" aria-selected="false" data-i="1">Bracelet Collision Stellaire</button></li>
-          <li><button type="button" role="tab" id="tab-2" aria-controls="info-2" aria-selected="false" data-i="2">Solitaire couronne</button></li>
-          <li><button type="button" role="tab" id="tab-3" aria-controls="info-3" aria-selected="false" data-i="3">Bague aux perles</button></li>
-          <li><button type="button" role="tab" id="tab-4" aria-controls="info-4" aria-selected="false" data-i="4">Pendentif arbre</button></li>
-        </ul>
-        <div class="showcase__frame">
-          <img class="is-on" src="img/collier-couronne-boreale-45.jpg" width="1120" height="1400" alt="Collier articulé d'hexagones en argent sur un buste blanc" loading="lazy" decoding="async">
-          <img class="" src="img/bracelet-collision-stellaire-45.jpg" width="1120" height="1400" alt="Bracelet articulé d'hexagones en argent, à pampilles" loading="lazy" decoding="async">
-          <img class="" src="img/solitaire-couronne.jpg" width="1200" height="1600" alt="Bague solitaire en argent, pierre ambrée tenue par une couronne de griffes" loading="lazy" decoding="async">
-          <img class="" src="img/bague-perles.jpg" width="1205" height="1600" alt="Bague en argent dont la tête en demi-lune noircie abrite deux perles" loading="lazy" decoding="async">
-          <img class="" src="img/pendentif-arbre.jpg" width="1200" height="1600" alt="Médaillon en argent ajouré d'un arbre" loading="lazy" decoding="async">
+      <div class="about__body">
+        <h2 class="about__title" id="about-title" data-reveal>About me</h2>
+        <p class="about__lead" data-reveal>I am a jewelry maker with a strong interest in material, process and form.</p>
+        <p data-reveal>I enjoy working with my hands, exploring traditional techniques and finding new ways to combine them with contemporary design. My work is built on a geometric, systemic aesthetic: for my graduation collection, Constellations, I set myself the challenge of making a necklace and a bracelet with no clasp at all.</p>
+        <div class="about__cols">
+          <div data-reveal>
+            <h3>Skills and interests</h3>
+            <ul class="ticks">
+              <li>Sawing, filing, soldering, polishing</li>
+              <li>Stone setting, basic to intermediate</li>
+              <li>Silver, gold and other metals</li>
+              <li>Handcraft and traditional techniques</li>
+              <li>Design development and problem solving</li>
+            </ul>
+          </div>
+          <dl class="facts" data-reveal>
+            <div><dt>Training</dt><dd>École de joaillerie de Montréal, class of 2023</dd></div>
+            <div><dt>Role</dt><dd>Goldsmith, bench jeweler</dd></div>
+            <div><dt>Based in</dt><dd>Amsterdam, Netherlands</dd></div>
+          </dl>
         </div>
-        <div class="showcase__info">
-          <div class="info is-on" role="tabpanel" id="info-0" aria-labelledby="tab-0">
-            <p>Un collier sans fermoir. Certaines parties s'étirent et se rétractent, si bien qu'il épouse le cou selon l'agencement choisi.</p>
-            <dl><div><dt>Collection</dt><dd>Constellations</dd></div><div><dt>Matière</dt><dd>Argent sterling</dd></div></dl>
-          </div>
-          <div class="info" role="tabpanel" id="info-1" aria-labelledby="tab-1" hidden>
-            <p>Sans fermoir lui aussi, il s'ajuste à tous les poignets grâce à un système de ressort mis au point à l'atelier.</p>
-            <dl><div><dt>Collection</dt><dd>Constellations</dd></div><div><dt>Matière</dt><dd>Argent sterling, saphir étoilé</dd></div></dl>
-          </div>
-          <div class="info" role="tabpanel" id="info-2" aria-labelledby="tab-2" hidden>
-            <p>Une pierre ambrée posée haut, tenue par une couronne de griffes découpées à même le métal.</p>
-            <dl><div><dt>Matière</dt><dd>Argent sterling</dd></div><div><dt>Sertissage</dt><dd>Couronne à griffes</dd></div></dl>
-          </div>
-          <div class="info" role="tabpanel" id="info-3" aria-labelledby="tab-3" hidden>
-            <p>Une demi-lune d'argent noirci qui s'ouvre sur deux perles, au bout d'un anneau fin.</p>
-            <dl><div><dt>Matière</dt><dd>Argent sterling, perles</dd></div><div><dt>Finition</dt><dd>Intérieur oxydé</dd></div></dl>
-          </div>
-          <div class="info" role="tabpanel" id="info-4" aria-labelledby="tab-4" hidden>
-            <p>Un médaillon ajouré d'un arbre dont les branches touchent le bord, sur fond noirci.</p>
-            <dl><div><dt>Matière</dt><dd>Argent sterling</dd></div><div><dt>Finition</dt><dd>Ajouré, fond oxydé</dd></div></dl>
-          </div>
-        </div>
-        <p class="showcase__count" aria-hidden="true"><span id="sc-count">1</span> / 5</p>
       </div>
     </section>
 
-    <!-- 3 bis. Carnet : du croquis à l'établi, en rangée qu'on fait glisser -->
-    <section class="carnet" aria-labelledby="carnet-titre">
-      <div class="carnet__head">
-        <h2 class="carnet__title" id="carnet-titre" data-reveal>Du croquis à la pièce</h2>
-        <p data-reveal>Chaque bijou commence sur papier, à la gouache, avant de passer à l'établi.</p>
+    <!-- 3. Design process -->
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="process__head">
+        <h2 class="section-title" id="process-title" data-reveal>From observation to form</h2>
+        <p data-reveal>Ideas often start with nature, a texture or a feeling. I sketch, explore materials and test different shapes before moving to the final piece.</p>
       </div>
-      <div class="strip" tabindex="0" aria-label="Croquis et étapes de fabrication, faites glisser pour parcourir">
-        <figure class="strip__item"><img src="img/croquis-collier-bleu.jpg" width="675" height="1200" alt="Croquis à la gouache d’un collier de perles bleues et pendentif facetté" loading="lazy" draggable="false"><figcaption>Croquis à la gouache</figcaption></figure>
-        <figure class="strip__item"><img src="img/croquis-collier-bleu-entier.jpg" width="1200" height="962" alt="Croquis du collier de perles bleues en entier" loading="lazy" draggable="false"><figcaption>Le collier entier</figcaption></figure>
-        <figure class="strip__item"><img src="img/croquis-bague-or.jpg" width="675" height="1200" alt="Croquis à la gouache d’une bague dorée à rainures, vue de dessus et de profil" loading="lazy" draggable="false"><figcaption>Une bague, deux vues</figcaption></figure>
-        <figure class="strip__item"><img src="img/croquis-boucles.jpg" width="675" height="1200" alt="Deux boucles d’oreilles posées sur leur croquis" loading="lazy" draggable="false"><figcaption>Boucles, posées sur le dessin</figcaption></figure>
-        <figure class="strip__item"><img src="img/etabli-sertissure.jpg" width="900" height="1200" alt="Couronne de griffes en argent sur un mandrin, avant sertissage" loading="lazy" draggable="false"><figcaption>La couronne, sur le mandrin</figcaption></figure>
-        <figure class="strip__item"><img src="img/etabli-hexagones.jpg" width="900" height="1200" alt="Dizaines d’hexagones en argent étalés sur l’établi" loading="lazy" draggable="false"><figcaption>Les hexagones de Couronne Boréale</figcaption></figure>
-        <figure class="strip__item"><img src="img/etabli-forge.jpg" width="900" height="1200" alt="Une tige d’argent travaillée sur la bigorne" loading="lazy" draggable="false"><figcaption>À la forge</figcaption></figure>
-        <figure class="strip__item"><img src="img/etabli-pierres.jpg" width="904" height="1200" alt="Quatre bagues serties de pierres de couleur sur l’établi" loading="lazy" draggable="false"><figcaption>Quatre pierres, quatre bagues</figcaption></figure>
+      <div class="strip" tabindex="0" aria-label="Sketches, drag or use the arrows to browse">
+        <figure class="strip__item"><img src="img/croquis-collier-bleu.jpg" width="675" height="1200" alt="Gouache sketch of a blue bead necklace with a faceted pendant" loading="lazy" decoding="async" draggable="false"><figcaption>Gouache study, pendant</figcaption></figure>
+        <figure class="strip__item"><img src="img/croquis-collier-bleu-entier.jpg" width="1200" height="962" alt="Gouache sketch of the whole blue bead necklace" loading="lazy" decoding="async" draggable="false"><figcaption>The full necklace</figcaption></figure>
+        <figure class="strip__item"><img src="img/croquis-bague-or.jpg" width="675" height="1200" alt="Gouache sketch of a grooved gold ring, top and side views" loading="lazy" decoding="async" draggable="false"><figcaption>One ring, two views</figcaption></figure>
+        <figure class="strip__item"><img src="img/croquis-boucles.jpg" width="675" height="1200" alt="Two finished earrings laid on their pencil sketch" loading="lazy" decoding="async" draggable="false"><figcaption>Earrings on their sketch</figcaption></figure>
       </div>
       <div class="strip__nav">
-        <button type="button" class="strip__btn" data-dir="-1" aria-label="Précédent">←</button>
+        <button type="button" class="strip__btn" data-dir="-1" aria-label="Previous">←</button>
         <div class="strip__bar" aria-hidden="true"><i></i></div>
-        <button type="button" class="strip__btn" data-dir="1" aria-label="Suivant">→</button>
+        <button type="button" class="strip__btn" data-dir="1" aria-label="Next">→</button>
       </div>
     </section>
 
-    <!-- 4. Toute la collection : filtres, « voir plus » et visionneuse -->
-    <section class="collection" id="collection" aria-labelledby="collection-titre">
-      <div class="collection__head">
-        <h2 class="collection__title" id="collection-titre" data-reveal>Collection</h2>
-        <div class="filters" role="group" aria-label="Filtrer les pièces" data-reveal>
-          <button type="button" class="is-on" data-filter="tout" aria-pressed="true">Tout <sup>28</sup></button>
-          <button type="button" data-filter="bague" aria-pressed="false">Bagues <sup>14</sup></button>
-          <button type="button" data-filter="jonc" aria-pressed="false">Joncs <sup>3</sup></button>
-          <button type="button" data-filter="cou" aria-pressed="false">Colliers et pendentifs <sup>8</sup></button>
-          <button type="button" data-filter="boucles" aria-pressed="false">Boucles d'oreilles <sup>3</sup></button>
+    <!-- 4. Technical drawing: drawn on scroll, dimensions light up on hover -->
+    <section class="drawing" aria-labelledby="drawing-title">
+      <div class="drawing__text">
+        <h2 class="section-title" id="drawing-title" data-reveal>Technical drawings</h2>
+        <p data-reveal>Drawings help me understand proportions, fit and construction before starting the actual piece.</p>
+        <ul class="dims" data-reveal>
+          <li><button type="button" data-dim="w"><b>22 mm</b> outer width</button></li>
+          <li><button type="button" data-dim="d"><b>18 mm</b> inner diameter</button></li>
+          <li><button type="button" data-dim="b"><b>5 mm</b> band width</button></li>
+        </ul>
+      </div>
+      <svg class="plan" data-reveal="draw" viewBox="0 0 640 420" role="img" aria-labelledby="plan-title">
+        <title id="plan-title">Front and side views of a faceted ring, with its dimensions</title>
+        <g class="plan__line">
+          <polygon pathLength="1" points="120,92 232,72 300,150 286,268 176,318 74,262 54,150"/>
+          <circle pathLength="1" cx="178" cy="196" r="90"/>
+          <path pathLength="1" d="M120,92 L150,128 M232,72 L222,112 M300,150 L264,164 M286,268 L250,250 M176,318 L180,286 M74,262 L104,244 M54,150 L90,166"/>
+          <rect pathLength="1" x="430" y="72" width="64" height="246"/>
+          <path pathLength="1" d="M430,106 L494,92 M430,284 L494,298 M462,72 L462,318"/>
+        </g>
+        <g class="plan__dim" data-dim="w">
+          <path pathLength="1" d="M54,48 L300,48 M54,40 L54,56 M300,40 L300,56"/>
+          <text x="177" y="34" text-anchor="middle">22 mm</text>
+        </g>
+        <g class="plan__dim" data-dim="d">
+          <path pathLength="1" d="M88,196 L268,196 M88,188 L88,204 M268,188 L268,204"/>
+          <text x="178" y="186" text-anchor="middle">Ø 18 mm</text>
+        </g>
+        <g class="plan__dim" data-dim="b">
+          <path pathLength="1" d="M430,352 L494,352 M430,344 L430,360 M494,344 L494,360"/>
+          <text x="462" y="384" text-anchor="middle">5 mm</text>
+        </g>
+        <text class="plan__label" x="178" y="404" text-anchor="middle">Front</text>
+        <text class="plan__label" x="462" y="404" text-anchor="middle">Side</text>
+      </svg>
+    </section>
+
+    <!-- 5. Materials and techniques -->
+    <section class="tech" aria-labelledby="tech-title">
+      <div class="tech__head">
+        <h2 class="section-title" id="tech-title" data-reveal>Materials and techniques</h2>
+        <p data-reveal>I work with traditional hand tools and techniques, while staying open to new methods and materials. Each step is part of the creative and technical process.</p>
+      </div>
+      <div class="tech__grid">
+        <figure class="tech__item" data-reveal><img src="img/etabli-hexagones.jpg" width="900" height="1200" alt="Dozens of sawn silver hexagons laid out on the bench, parts of the Couronne Boréale necklace" loading="lazy" decoding="async"><figcaption>Sawing and filing</figcaption></figure>
+        <figure class="tech__item" data-reveal><img src="img/etabli-forge.jpg" width="900" height="1200" alt="A silver rod being shaped on a steel stake" loading="lazy" decoding="async"><figcaption>Forging</figcaption></figure>
+        <figure class="tech__item" data-reveal><img src="img/jonc-martele.jpg" width="1200" height="1600" alt="A wide hammered silver band on a worn wooden bench" loading="lazy" decoding="async"><figcaption>Texturing</figcaption></figure>
+        <figure class="tech__item" data-reveal><img src="img/etabli-sertissure.jpg" width="900" height="1200" alt="A crown setting on a mandrel, ready for its stone" loading="lazy" decoding="async"><figcaption>Stone setting</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 6. Workshop -->
+    <section class="workshop" aria-labelledby="workshop-title">
+      <div class="workshop__pic" data-reveal="wipe">
+        <img src="img/etabli-pierres.jpg" width="904" height="1200" alt="Four rings set with coloured stones on a busy workbench, among tools and pots" loading="lazy" decoding="async">
+      </div>
+      <div class="workshop__text">
+        <h2 class="section-title" id="workshop-title" data-reveal>Workshop</h2>
+        <p class="workshop__quote" data-reveal>My workspace is where ideas become real. I value a clean, functional setup and the quiet focus that comes with working by hand.</p>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Sterling silver</span><span>Geometry</span><span>Constellations</span><span>Sawing</span><span>Soldering</span><span>Stone setting</span><span>Polishing</span>
+        <span>Sterling silver</span><span>Geometry</span><span>Constellations</span><span>Sawing</span><span>Soldering</span><span>Stone setting</span><span>Polishing</span>
+      </div>
+    </div>
+
+    <!-- 7. A glimpse of the work, the full catalogue lives on work.html -->
+    <section class="teaser" id="work" aria-labelledby="work-title">
+      <div class="teaser__head">
+        <h2 class="section-title" id="work-title" data-reveal>Selected work</h2>
+        <a class="teaser__all" href="work.html" data-reveal><span>See all 28 pieces</span><span aria-hidden="true">→</span></a>
+      </div>
+      <div class="teaser__row">
+        <a class="teaser__item" href="work.html#couronne-boreale" data-reveal><span class="teaser__img"><img src="img/collier-couronne-boreale-45.jpg" width="1120" height="1400" alt="Articulated sterling silver hexagon necklace on a white bust" loading="lazy" decoding="async"></span><span class="teaser__name">Couronne Boréale</span><span class="teaser__mat">Sterling silver, Constellations</span></a>
+        <a class="teaser__item" href="work.html#crown-solitaire" data-reveal><span class="teaser__img"><img src="img/solitaire-couronne.jpg" width="1200" height="1600" alt="Sterling silver solitaire ring, an amber stone held by a crown of prongs" loading="lazy" decoding="async"></span><span class="teaser__name">Crown solitaire</span><span class="teaser__mat">Sterling silver</span></a>
+        <a class="teaser__item" href="work.html#pearl-ring" data-reveal><span class="teaser__img"><img src="img/bague-perles.jpg" width="1205" height="1600" alt="Silver ring whose blackened half-moon head holds two pearls" loading="lazy" decoding="async"></span><span class="teaser__name">Pearl ring</span><span class="teaser__mat">Sterling silver, pearls</span></a>
+        <a class="teaser__item" href="work.html#tree-pendant" data-reveal><span class="teaser__img"><img src="img/pendentif-arbre.jpg" width="1200" height="1600" alt="Silver medallion pierced with a tree" loading="lazy" decoding="async"></span><span class="teaser__name">Tree pendant</span><span class="teaser__mat">Sterling silver</span></a>
+      </div>
+    </section>
+
+    <!-- 9. Amsterdam and goals -->
+    <section class="goals" aria-labelledby="goals-title">
+      <h2 class="goals__title" id="goals-title" data-reveal>Amsterdam</h2>
+      <div class="goals__grid">
+        <div class="goals__lead">
+          <p data-reveal>Amsterdam is a city that values craftsmanship, creativity and diversity.</p>
+          <p data-reveal>I want to join a studio where I can learn from experienced goldsmiths, work on meaningful projects and be part of a community that shares the same passion for jewelry and design.</p>
+        </div>
+        <div class="goals__list" data-reveal>
+          <h3>My goals</h3>
+          <ul>
+            <li>Improve my technical skills</li>
+            <li>Work on unique and meaningful pieces</li>
+            <li>Contribute to a creative studio or atelier in Amsterdam</li>
+          </ul>
         </div>
       </div>
-
-      <div class="grid" id="grid">
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/collier-couronne-boreale.jpg" width="1600" height="1600" alt="Collier Couronne Boréale" loading="lazy" decoding="async"><span>Collier Couronne Boréale</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/solitaire-couronne.jpg" width="1200" height="1600" alt="Solitaire couronne" loading="lazy" decoding="async"><span>Solitaire couronne</span></button>
-        <button type="button" class="card" data-cat="jonc" data-reveal><img src="img/jonc-tresse.jpg" width="1600" height="1200" alt="Jonc à la tresse" loading="lazy" decoding="async"><span>Jonc à la tresse</span></button>
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/pendentif-spirale.jpg" width="1080" height="1080" alt="Pendentif spirale" loading="lazy" decoding="async"><span>Pendentif spirale</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-perles.jpg" width="1205" height="1600" alt="Bague aux perles" loading="lazy" decoding="async"><span>Bague aux perles</span></button>
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/bracelet-collision-stellaire.jpg" width="1600" height="1067" alt="Bracelet Collision Stellaire" loading="lazy" decoding="async"><span>Bracelet Collision Stellaire</span></button>
-        <button type="button" class="card" data-cat="boucles" data-reveal><img src="img/pendants-hexagones.jpg" width="1200" height="1600" alt="Pendants hexagones" loading="lazy" decoding="async"><span>Pendants hexagones</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-cabochon.jpg" width="1600" height="1200" alt="Bague cabochon" loading="lazy" decoding="async"><span>Bague cabochon</span></button>
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/pendentif-arbre.jpg" width="1200" height="1600" alt="Pendentif arbre" loading="lazy" decoding="async"><span>Pendentif arbre</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/trio-chevalieres.jpg" width="1600" height="1200" alt="Trois chevalières gravées" loading="lazy" decoding="async"><span>Trois chevalières gravées</span></button>
-        <button type="button" class="card" data-cat="boucles" data-reveal><img src="img/boucles-triangles.jpg" width="1080" height="1080" alt="Boucles triangles" loading="lazy" decoding="async"><span>Boucles triangles</span></button>
-        <button type="button" class="card" data-cat="jonc" data-reveal><img src="img/jonc-martele.jpg" width="1200" height="1600" alt="Jonc martelé" loading="lazy" decoding="async"><span>Jonc martelé</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-torsadee.jpg" width="1067" height="1600" alt="Bague torsadée" loading="lazy" decoding="async"><span>Bague torsadée</span></button>
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/pendentif-cage.jpg" width="1080" height="1080" alt="Pendentif cage" loading="lazy" decoding="async"><span>Pendentif cage</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-vague.jpg" width="1600" height="1200" alt="Bague vague" loading="lazy" decoding="async"><span>Bague vague</span></button>
-        <button type="button" class="card" data-cat="boucles" data-reveal><img src="img/boucles-hexagones.jpg" width="1600" height="1200" alt="Boucles hexagones" loading="lazy" decoding="async"><span>Boucles hexagones</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/quatre-anneaux.jpg" width="1600" height="1067" alt="Quatre anneaux facettés" loading="lazy" decoding="async"><span>Quatre anneaux facettés</span></button>
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/pendentif-ovale.jpg" width="1200" height="1600" alt="Pendentif ovale" loading="lazy" decoding="async"><span>Pendentif ovale</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-cabochon-carre.jpg" width="1600" height="1600" alt="Bague cabochon carré" loading="lazy" decoding="async"><span>Bague cabochon carré</span></button>
-        <button type="button" class="card" data-cat="jonc" data-reveal><img src="img/jonc-neige.jpg" width="852" height="780" alt="Jonc texturé" loading="lazy" decoding="async"><span>Jonc texturé</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-opale.jpg" width="785" height="550" alt="Double anneau, opale" loading="lazy" decoding="async"><span>Double anneau, opale</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/solitaire-couronne-reflet.jpg" width="1600" height="1200" alt="Solitaire couronne, en reflet" loading="lazy" decoding="async"><span>Solitaire couronne, en reflet</span></button>
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/pendentif-ecorce.jpg" width="631" height="829" alt="Pendentif écorce" loading="lazy" decoding="async"><span>Pendentif écorce</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-grenat.jpg" width="750" height="821" alt="Solitaire grenat" loading="lazy" decoding="async"><span>Solitaire grenat</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/chevaliere-lisse.jpg" width="846" height="708" alt="Chevalière lisse" loading="lazy" decoding="async"><span>Chevalière lisse</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-mousse.jpg" width="778" height="565" alt="Bague ouverte" loading="lazy" decoding="async"><span>Bague ouverte</span></button>
-        <button type="button" class="card" data-cat="cou" data-reveal><img src="img/collier-hexagones.jpg" width="713" height="822" alt="Couronne Boréale, portée" loading="lazy" decoding="async"><span>Couronne Boréale, portée</span></button>
-        <button type="button" class="card" data-cat="bague" data-reveal><img src="img/bague-or-verte.jpg" width="476" height="641" alt="Bague à griffes, pierre verte" loading="lazy" decoding="async"><span>Bague à griffes, pierre verte</span></button>
-      </div>
-      <div class="more"><button type="button" class="more__btn" id="more">Voir les 28 pièces</button></div>
     </section>
 
-    <!-- 5. Me contacter -->
-    <section class="contact" id="contact" aria-labelledby="contact-titre">
+    <!-- 10. Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
       <div class="contact__intro">
-        <h2 class="contact__title" id="contact-titre" data-reveal>Me contacter</h2>
-        <p data-reveal>Une question sur une pièce, une idée à partager&nbsp;? Écrivez-moi, je réponds personnellement.</p>
-        <p class="contact__who" data-reveal>Mathis Mortier d'Aumont, artiste joaillier. Diplômé de l'École de joaillerie de Montréal, Québec.</p>
-        <p class="contact__direct" data-reveal>Ou directement&nbsp;: <a href="mailto:atelier@mortier.ca">atelier@mortier.ca</a></p>
+        <h2 class="contact__title" id="contact-title" data-reveal>Get in touch</h2>
+        <p data-reveal>A question about a piece, a position in your studio, an idea to share? Write to me, I answer personally.</p>
+        <p class="contact__direct" data-reveal>Or directly: <a href="mailto:atelier@mortier.ca">atelier@mortier.ca</a></p>
       </div>
 
-      <!-- data-endpoint : collez ici l'adresse d'un service d'envoi (ex. Formspree) pour recevoir les messages sans ouvrir le logiciel de courriel. -->
+      <!-- data-endpoint: paste the address of a form service (e.g. Formspree) here to receive messages without opening the visitor's email app. -->
       <form class="mail" id="mail" data-to="atelier@mortier.ca" data-endpoint="" novalidate data-reveal>
         <div class="mail__row">
           <div class="field">
-            <label for="mail-nom">Nom</label>
-            <input id="mail-nom" name="nom" type="text" autocomplete="name" required>
+            <label for="mail-name">Name</label>
+            <input id="mail-name" name="name" type="text" autocomplete="name" required>
           </div>
           <div class="field">
-            <label for="mail-courriel">Courriel</label>
-            <input id="mail-courriel" name="courriel" type="email" autocomplete="email" required>
+            <label for="mail-email">Email</label>
+            <input id="mail-email" name="email" type="email" autocomplete="email" required>
           </div>
         </div>
         <div class="field">
-          <span class="field__label" id="sujet-label">Sujet</span>
-          <div class="chips" role="radiogroup" aria-labelledby="sujet-label">
-            <label><input type="radio" name="sujet" value="Une pièce de la collection" checked><span>Une pièce de la collection</span></label>
-            <label><input type="radio" name="sujet" value="Une idée de pièce"><span>Une idée de pièce</span></label>
-            <label><input type="radio" name="sujet" value="Autre chose"><span>Autre chose</span></label>
+          <span class="field__label" id="topic-label">Topic</span>
+          <div class="chips" role="radiogroup" aria-labelledby="topic-label">
+            <label><input type="radio" name="topic" value="A position in your studio" checked><span>A position in your studio</span></label>
+            <label><input type="radio" name="topic" value="A piece"><span>A piece</span></label>
+            <label><input type="radio" name="topic" value="Something else"><span>Something else</span></label>
           </div>
         </div>
         <div class="field">
@@ -206,7 +223,7 @@
           <span class="field__count" id="mail-count" aria-live="polite">0 / 1000</span>
         </div>
         <div class="mail__send">
-          <button type="submit" class="mail__btn"><span>Envoyer</span><span aria-hidden="true">→</span></button>
+          <button type="submit" class="mail__btn"><span>Send</span><span aria-hidden="true">→</span></button>
           <p class="mail__status" id="mail-status" role="status"></p>
         </div>
       </form>
@@ -220,21 +237,10 @@
       <a href="mailto:atelier@mortier.ca">atelier@mortier.ca</a>
     </div>
     <div class="foot__legal">
-      <p>© 2026 Mortier, Mathis Mortier d’Aumont. Toutes les pièces photographiées sont des créations de l’atelier.</p>
-      <a href="#haut">Retour en haut</a>
+      <p>© 2026 Mortier, Mathis Mortier d’Aumont. All pieces shown are made in the workshop.</p>
+      <a href="#top">Back to top</a>
     </div>
   </footer>
-
-  <!-- Visionneuse -->
-  <dialog class="viewer" id="viewer" aria-label="Visionneuse">
-    <figure>
-      <img id="viewer-img" src="" alt="">
-      <figcaption><span id="viewer-name"></span><span id="viewer-count"></span></figcaption>
-    </figure>
-    <button type="button" class="viewer__btn viewer__prev" aria-label="Pièce précédente"><span aria-hidden="true">←</span></button>
-    <button type="button" class="viewer__btn viewer__next" aria-label="Pièce suivante"><span aria-hidden="true">→</span></button>
-    <button type="button" class="viewer__close" aria-label="Fermer">Fermer</button>
-  </dialog>
 
   <script src="js/main.js"></script>
 </body>
