@@ -100,6 +100,28 @@
   // 4. Collection : filtres, inclinaison au survol, visionneuse.
   var cards = [].slice.call(document.querySelectorAll('.card'));
   var buttons = [].slice.call(document.querySelectorAll('.filters button'));
+  var more = document.querySelector('.more');
+  var LIMIT = 12, expanded = false;
+  function applyLimit(f) {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var inCat = f === 'tout' || c.getAttribute('data-cat') === f;
+      c.classList.toggle('is-extra', inCat && f === 'tout' && !expanded && shown >= LIMIT);
+      if (inCat) shown++;
+    });
+    more.hidden = expanded || f !== 'tout';
+  }
+  applyLimit('tout');
+  document.getElementById('more').addEventListener('click', function () {
+    expanded = true;
+    var j = 0;
+    cards.forEach(function (c) {
+      if (!c.classList.contains('is-extra')) return;
+      c.classList.remove('is-extra', 'is-in-filter');
+      c.style.setProperty('--j', j++); void c.offsetWidth; c.classList.add('is-in-filter');
+    });
+    more.hidden = true;
+  });
   buttons.forEach(function (b) {
     b.addEventListener('click', function () {
       var f = b.getAttribute('data-filter');
@@ -108,11 +130,58 @@
       cards.forEach(function (c) {
         var show = f === 'tout' || c.getAttribute('data-cat') === f;
         c.classList.toggle('is-out', !show);
-        c.classList.remove('is-in-filter');
-        if (show) { c.style.setProperty('--j', j++); void c.offsetWidth; c.classList.add('is-in-filter'); }
+        c.classList.remove('is-in-filter', 'is-in');
+        c.classList.add('is-in');
+        if (show) { c.style.setProperty('--j', Math.min(j++, 12)); void c.offsetWidth; c.classList.add('is-in-filter'); }
       });
+      applyLimit(f);
     });
   });
+
+  // Carnet : rangée qu'on fait glisser à la souris, flèches et barre d'avancement.
+  var strip = document.querySelector('.strip');
+  if (strip) {
+    var sbar = document.querySelector('.strip__bar i');
+    var syncBar = function () {
+      var max = strip.scrollWidth - strip.clientWidth;
+      var seen = (strip.scrollLeft + strip.clientWidth) / strip.scrollWidth;
+      sbar.style.setProperty('--sp', max > 0 ? seen.toFixed(3) : 1);
+    };
+    strip.addEventListener('scroll', function () { requestAnimationFrame(syncBar); }, { passive: true });
+    window.addEventListener('resize', syncBar);
+    syncBar();
+    document.querySelectorAll('.strip__btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var step = strip.querySelector('.strip__item').offsetWidth + 8;
+        strip.scrollBy({ left: step * Number(b.getAttribute('data-dir')), behavior: reduce ? 'auto' : 'smooth' });
+      });
+    });
+    strip.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        strip.scrollBy({ left: (e.key === 'ArrowRight' ? 1 : -1) * strip.clientWidth * 0.6, behavior: reduce ? 'auto' : 'smooth' });
+      }
+    });
+    var down = false, startX = 0, startL = 0, moved = 0;
+    strip.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse') return;
+      down = true; moved = 0; startX = e.clientX; startL = strip.scrollLeft;
+      strip.classList.add('is-dragging'); strip.setPointerCapture(e.pointerId);
+    });
+    strip.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      moved = e.clientX - startX;
+      strip.scrollLeft = startL - moved;
+    });
+    var end = function () {
+      if (!down) return;
+      down = false; strip.classList.remove('is-dragging');
+      var step = strip.querySelector('.strip__item').offsetWidth + 8;
+      if (Math.abs(moved) > 30) strip.scrollTo({ left: Math.round(strip.scrollLeft / step) * step, behavior: 'smooth' });
+    };
+    strip.addEventListener('pointerup', end);
+    strip.addEventListener('pointercancel', end);
+  }
 
   if (fine && !reduce) {
     cards.forEach(function (c) {
@@ -142,7 +211,7 @@
   }
   cards.forEach(function (c) {
     c.addEventListener('click', function () {
-      list = cards.filter(function (o) { return !o.classList.contains('is-out'); });
+      list = cards.filter(function (o) { return !o.classList.contains('is-out') && !o.classList.contains('is-extra'); });
       show(list.indexOf(c));
       if (viewer.showModal) viewer.showModal(); else viewer.setAttribute('open', '');
     });

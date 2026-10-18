@@ -17,11 +17,12 @@ fonts/            Bodoni Moda et Jost, hébergées localement (licence SIL OFL)
 ## La page, dans l'ordre
 
 1. **Ouverture** : le nom MORTIER reste épinglé pendant que trois pièces se relaient dessous.
-2. **Matières** : une ligne qui défile (argent martelé, grenat, opale…).
+2. **Matières** : une ligne qui défile (argent sterling, Constellations, géométrie…).
 3. **Cinq pièces** : une vitrine sur un écran ; survoler ou cliquer un nom change la photo et la description.
-4. **Collection** : toutes les pièces, avec des filtres par type et une visionneuse plein écran
+4. **Du croquis à la pièce** : croquis à la gouache et photos d'établi, en rangée qu'on fait glisser.
+5. **Collection** : toutes les pièces (12 d'abord, puis « Voir les 28 pièces »), avec des filtres par type et une visionneuse plein écran
    (flèches du clavier, balayage sur téléphone).
-5. **Me contacter** : un formulaire (nom, courriel, sujet, message), puis le pied de page.
+6. **Me contacter** : un formulaire (nom, courriel, sujet, message), puis le pied de page.
 
 ## Recevoir les messages du formulaire
 
@@ -42,6 +43,6 @@ Pour les photos de l'ouverture, utilisez un format portrait 2:3.
 Ces contenus sont des exemples à vérifier ou à remplacer :
 
 - l'adresse courriel `atelier@mortier.ca`, dans la section Me contacter (`data-to`) et le pied de page ;
-- le nom et le métal indiqués sous chaque photo ;
+- les noms des pièces : seuls Collier Couronne Boréale et Bracelet Collision Stellaire viennent de vous, les autres sont descriptifs ;
 - les descriptions, matières et finitions des cinq pièces mises en avant ;
 - le classement des pièces dans les filtres (bagues, joncs, chevalières, colliers et pendentifs).

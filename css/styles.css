@@ -250,6 +250,34 @@ button, input { font: inherit; color: inherit; }
   .showcase__count { position: static; grid-row: 4; }
 }
 
+/* ---------- 3 bis. Carnet : du croquis à la pièce ---------- */
+.carnet { padding: 0 0 var(--section); overflow: hidden; }
+.carnet__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; padding-inline: var(--m); margin-bottom: 40px; }
+.carnet__title { font-family: var(--display); font-weight: 500; font-size: var(--step-head); line-height: 0.95; letter-spacing: -0.03em; max-width: 11ch; }
+.carnet__head p { max-width: 34ch; color: var(--muted); }
+.strip {
+  display: flex; gap: var(--gap); overflow-x: auto; padding-inline: var(--m);
+  scroll-snap-type: x mandatory; scroll-padding-inline: var(--m);
+  scrollbar-width: none; cursor: grab; user-select: none;
+}
+.strip::-webkit-scrollbar { display: none; }
+.strip.is-dragging { cursor: grabbing; scroll-snap-type: none; }
+.strip__item { flex: none; scroll-snap-align: start; }
+.strip__item img { height: min(62svh, 560px); width: auto; max-width: none; background: var(--surface); pointer-events: none; transition: transform 600ms var(--ease-out); }
+.strip__item:hover img { transform: scale(0.985); }
+.strip__item figcaption { padding-top: 12px; font-size: var(--step-small); }
+.strip__nav { display: flex; align-items: center; gap: 16px; padding: 28px var(--m) 0; }
+.strip__btn {
+  width: 52px; height: 52px; border: 0; cursor: pointer; flex: none;
+  background: var(--surface); color: var(--ink); font-size: 20px;
+  transition: background-color var(--t-hover) ease, transform var(--t-hover) var(--ease-out);
+}
+.strip__btn:hover { background: var(--surface-2); }
+.strip__btn:active { transform: scale(0.94); }
+.strip__bar { flex: 1; height: 3px; background: var(--surface); position: relative; overflow: hidden; }
+.strip__bar i { position: absolute; inset: 0; background: var(--ink); transform-origin: left; transform: scaleX(var(--sp, 0.2)); transition: transform 200ms linear; }
+@media (max-width: 760px) { .strip__item img { height: 52svh; } }
+
 /* ---------- 4. Collection ---------- */
 .collection { background: var(--surface); padding: clamp(72px, 9vw, 140px) var(--m) var(--section); }
 .collection__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px 40px; margin-bottom: 40px; }
@@ -283,7 +311,16 @@ button, input { font: inherit; color: inherit; }
 .card:hover img { --s: 1.02; }
 .card span { display: block; padding-top: 10px; font-size: var(--step-small); transition: color var(--t-hover) ease; }
 .card:hover span { color: var(--accent); }
-.card.is-out { display: none; }
+.card.is-out, .card.is-extra { display: none; }
+.more { display: flex; justify-content: center; margin-top: 24px; }
+.more[hidden] { display: none; }
+.more__btn {
+  min-height: 56px; padding: 0 28px; border: 0; cursor: pointer;
+  background: var(--ink); color: var(--bg); font-size: var(--step-body);
+  transition: background-color var(--t-hover) ease, transform var(--t-hover) var(--ease-out);
+}
+.more__btn:hover { background: var(--accent); }
+.more__btn:active { transform: scale(0.97); }
 .card.is-in-filter { animation: card-in 500ms var(--ease-out) both; animation-delay: calc(var(--j, 0) * 50ms); }
 @keyframes card-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
 @media (hover: hover) and (pointer: fine) {
@@ -303,6 +340,7 @@ button, input { font: inherit; color: inherit; }
 }
 .contact__intro p { margin-top: 24px; max-width: 32ch; }
 .contact__direct { color: var(--muted); }
+.contact__who { font-size: var(--step-small); color: var(--muted); }
 .contact__direct a { color: var(--ink); text-underline-offset: 0.2em; transition: color var(--t-hover) ease; }
 .contact__direct a:hover { color: var(--accent); }
 
@@ -320,8 +358,8 @@ button, input { font: inherit; color: inherit; }
 }
 .field textarea { resize: vertical; min-height: 168px; }
 .field input:hover, .field textarea:hover { background: var(--surface-2); }
-.field input:focus, .field textarea:focus { outline: none; background: var(--surface-2); box-shadow: inset 0 -3px 0 var(--accent); }
-.field.is-bad input, .field.is-bad textarea { box-shadow: inset 0 -3px 0 #d98a7a; }
+.field input:focus, .field textarea:focus { outline: none; background: var(--surface-2); box-shadow: inset 0 -3px 0 var(--accent); } /* taste-skill-ignore : trait de focus, pas une ombre */
+.field.is-bad input, .field.is-bad textarea { box-shadow: inset 0 -3px 0 #d98a7a; } /* taste-skill-ignore : champ en erreur */
 .field__count { justify-self: end; font-size: var(--step-small); color: var(--muted); font-variant-numeric: tabular-nums; }
 
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
