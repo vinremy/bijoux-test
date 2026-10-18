@@ -82,7 +82,7 @@
     <!-- 4. Two drawings: the technical one draws itself, the creative one gives the identity -->
     <section class="drawing" aria-labelledby="drawing-title">
       <div class="drawing__text">
-        <h2 class="section-title" id="drawing-title" data-reveal>Two drawings</h2>
+        <h2 class="section-title" id="drawing-title" data-reveal>Drawings</h2>
         <p data-reveal>Every piece is drawn twice. First comes a technical drawing, at the very start: it helps me understand proportions, fit and construction before I touch the metal.</p>
         <p data-reveal>Then a creative drawing gives the piece its identity: its colour, its light, its character.</p>
         <div class="switch" role="tablist" aria-label="Choose a drawing" data-reveal>
@@ -90,37 +90,43 @@
           <button type="button" role="tab" id="view-creative" aria-controls="stage-creative" aria-selected="false">Creative</button>
         </div>
         <ul class="dims" id="dims" data-reveal>
-          <li><button type="button" data-dim="w"><b>22 mm</b> outer width</button></li>
-          <li><button type="button" data-dim="d"><b>18 mm</b> inner diameter</button></li>
-          <li><button type="button" data-dim="b"><b>5 mm</b> band width</button></li>
+          <li><button type="button" data-dim="o"><b>21 mm</b> outer diameter</button></li>
+          <li><button type="button" data-dim="i"><b>17.5 mm</b> inner diameter</button></li>
+          <li><button type="button" data-dim="w"><b>8 mm</b> band width</button></li>
+          <li><button type="button" data-dim="g"><b>3 × 1 mm</b> grooves</button></li>
         </ul>
         <p class="drawing__note" id="creative-note" hidden>Gouache and ink: two studies of the same grooved ring.</p>
       </div>
       <div class="drawing__stage">
         <div class="stage is-on" id="stage-tech" role="tabpanel" aria-labelledby="view-tech">
       <svg class="plan" data-reveal="draw" viewBox="0 0 640 420" role="img" aria-labelledby="plan-title">
-        <title id="plan-title">Front and side views of a faceted ring, with its dimensions</title>
+        <title id="plan-title">Front and side views of the grooved ring from the gouache drawing, with its dimensions</title>
         <g class="plan__line">
-          <polygon pathLength="1" points="120,92 232,72 300,150 286,268 176,318 74,262 54,150"/>
-          <circle pathLength="1" cx="178" cy="196" r="90"/>
-          <path pathLength="1" d="M120,92 L150,128 M232,72 L222,112 M300,150 L264,164 M286,268 L250,250 M176,318 L180,286 M74,262 L104,244 M54,150 L90,166"/>
-          <rect pathLength="1" x="430" y="72" width="64" height="246"/>
-          <path pathLength="1" d="M430,106 L494,92 M430,284 L494,298 M462,72 L462,318"/>
+          <circle pathLength="1" cx="178" cy="206" r="88"/>
+          <circle pathLength="1" cx="178" cy="206" r="73.5"/>
+          <path pathLength="1" d="M178,108 L178,126 M178,286 L178,304 M80,206 L98,206 M258,206 L276,206"/>
+          <rect pathLength="1" x="420" y="118" width="67" height="176"/>
+          <path pathLength="1" d="M432,118 L432,294 M440,118 L440,294 M449.5,118 L449.5,294 M457.5,118 L457.5,294 M467,118 L467,294 M475,118 L475,294"/>
+          <path pathLength="1" d="M420,132.5 L487,132.5 M420,279.5 L487,279.5"/>
+        </g>
+        <g class="plan__dim" data-dim="o">
+          <path pathLength="1" d="M90,98 L266,98 M90,90 L90,106 M266,90 L266,106"/>
+          <text x="178" y="84" text-anchor="middle">Ø 21 mm</text>
+        </g>
+        <g class="plan__dim" data-dim="i">
+          <path pathLength="1" d="M104.5,206 L251.5,206 M104.5,198 L104.5,214 M251.5,198 L251.5,214"/>
+          <text x="178" y="194" text-anchor="middle">Ø 17.5 mm</text>
         </g>
         <g class="plan__dim" data-dim="w">
-          <path pathLength="1" d="M54,48 L300,48 M54,40 L54,56 M300,40 L300,56"/>
-          <text x="177" y="34" text-anchor="middle">22 mm</text>
+          <path pathLength="1" d="M420,322 L487,322 M420,314 L420,330 M487,314 L487,330"/>
+          <text x="453.5" y="352" text-anchor="middle">8 mm</text>
         </g>
-        <g class="plan__dim" data-dim="d">
-          <path pathLength="1" d="M88,196 L268,196 M88,188 L88,204 M268,188 L268,204"/>
-          <text x="178" y="186" text-anchor="middle">Ø 18 mm</text>
-        </g>
-        <g class="plan__dim" data-dim="b">
-          <path pathLength="1" d="M430,352 L494,352 M430,344 L430,360 M494,344 L494,360"/>
-          <text x="462" y="384" text-anchor="middle">5 mm</text>
+        <g class="plan__dim" data-dim="g">
+          <path pathLength="1" d="M432,104 L440,104 M449.5,104 L457.5,104 M467,104 L475,104 M432,98 L432,110 M440,98 L440,110 M449.5,98 L449.5,110 M457.5,98 L457.5,110 M467,98 L467,110 M475,98 L475,110"/>
+          <text x="453.5" y="84" text-anchor="middle">3 × 1 mm</text>
         </g>
         <text class="plan__label" x="178" y="404" text-anchor="middle">Front</text>
-        <text class="plan__label" x="462" y="404" text-anchor="middle">Side</text>
+        <text class="plan__label" x="453.5" y="404" text-anchor="middle">Side</text>
       </svg>
         </div>
         <figure class="stage stage--creative" id="stage-creative" role="tabpanel" aria-labelledby="view-creative" hidden>
