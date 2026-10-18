@@ -134,6 +134,22 @@
     g.addEventListener('mouseleave', function () { focusDim(null); });
   });
 
+  // Two drawings: switch between the technical and the creative one.
+  var views = $$('.switch button');
+  if (views.length) {
+    var dims = $('#dims'), note = $('#creative-note');
+    views.forEach(function (v) {
+      v.addEventListener('click', function () {
+        var creative = v.id === 'view-creative';
+        views.forEach(function (o) { var on = o === v; o.classList.toggle('is-on', on); o.setAttribute('aria-selected', on); });
+        $('#stage-tech').hidden = creative; $('#stage-creative').hidden = !creative;
+        $('#stage-tech').classList.toggle('is-on', !creative); $('#stage-creative').classList.toggle('is-on', creative);
+        dims.hidden = creative; note.hidden = !creative;
+        if (!creative && plan) { plan.classList.remove('is-in'); void plan.offsetWidth; plan.classList.add('is-in'); }
+      });
+    });
+  }
+
   // 5. Selected work: hover or click a name, or use the arrow keys.
   var tabs = $$('.showcase__list button');
   var shots = $$('.showcase__frame img');

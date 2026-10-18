@@ -8,7 +8,7 @@ publiez le dossier tel quel sur n'importe quel hébergeur statique (GitHub Pages
 
 ```
 index.html        la page d'accueil : l'artiste et sa démarche, avec un aperçu des pièces
-work.html         la page des pièces : Constellations, pièces choisies, toutes les pièces
+work.html         la page des pièces : pièces choisies, toutes les pièces
 css/styles.css    les styles (couleurs et tailles réglées en haut du fichier, dans :root)
 js/main.js        les animations et interactions des deux pages
 img/              les photos
@@ -20,9 +20,9 @@ Le site est en anglais.
 ## Accueil (index.html)
 
 1. **Hero** : le nom MORTIER et les quatre anneaux facettés, sur fond papier.
-2. **About me** : présentation, compétences, formation.
+2. **About me** : le texte de la slide About me du portfolio, et les compétences.
 3. **From observation to form** : les croquis à la gouache, en rangée qu'on fait glisser.
-4. **Technical drawings** : un dessin technique qui se trace au défilement ; les cotes s'allument au survol.
+4. **Two drawings** : le dessin technique (qui se trace, cotes au survol) et le dessin créatif, avec un bouton pour passer de l'un à l'autre.
 5. **Materials and techniques** : quatre gestes d'établi.
 6. **Workshop** : l'atelier.
 7. **Selected work** : quatre pièces, avec un lien vers la page des pièces.
@@ -31,9 +31,8 @@ Le site est en anglais.
 
 ## Pièces (work.html)
 
-1. **Constellations** : la collection de fin d'études, Couronne Boréale et Collision Stellaire en détail.
-2. **Selected pieces** : cinq pièces avec leur description. Un lien comme `work.html#pearl-ring` ouvre directement la pièce.
-3. **Every piece** : les 28 pièces, avec filtres et visionneuse plein écran.
+1. **Selected pieces** : cinq pièces avec leur description. Un lien comme `work.html#pearl-ring` ouvre directement la pièce.
+2. **Every piece** : les 26 pièces, avec filtres et visionneuse plein écran.
 
 ## Recevoir les messages du formulaire
 
@@ -55,6 +54,6 @@ Ces contenus sont des exemples à vérifier ou à remplacer :
 
 - l'adresse courriel `atelier@mortier.ca`, dans la section Get in touch (`data-to`) et le pied de page ;
 - les cotes du dessin technique (22 mm, 18 mm, 5 mm), reprises du portfolio ;
-- les noms des pièces : seuls Collier Couronne Boréale et Bracelet Collision Stellaire viennent de vous, les autres sont descriptifs ;
+- les noms des pièces : seul Collision Stellaire vient de vous, les autres sont descriptifs ;
 - les descriptions, matières et finitions des pièces ;
 - le classement des pièces dans les filtres.

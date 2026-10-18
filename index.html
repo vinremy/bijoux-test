@@ -41,28 +41,22 @@
     <!-- 2. About me -->
     <section class="about" id="about" aria-labelledby="about-title">
       <div class="about__pic" data-reveal="wipe">
-        <img src="img/etabli-sertissure.jpg" width="900" height="1200" alt="A silver crown setting held on a ring mandrel at the bench" loading="lazy" decoding="async">
+        <img src="img/mathis-portrait.jpg" width="1066" height="1332" alt="Portrait of Mathis Mortier d’Aumont in a black turtleneck, arms crossed" loading="lazy" decoding="async">
       </div>
       <div class="about__body">
         <h2 class="about__title" id="about-title" data-reveal>About me</h2>
         <p class="about__lead" data-reveal>I am a jewelry maker with a strong interest in material, process and form.</p>
-        <p data-reveal>I enjoy working with my hands, exploring traditional techniques and finding new ways to combine them with contemporary design. My work is built on a geometric, systemic aesthetic: for my graduation collection, Constellations, I set myself the challenge of making a necklace and a bracelet with no clasp at all.</p>
-        <div class="about__cols">
-          <div data-reveal>
-            <h3>Skills and interests</h3>
-            <ul class="ticks">
-              <li>Sawing, filing, soldering, polishing</li>
-              <li>Stone setting, basic to intermediate</li>
-              <li>Silver, gold and other metals</li>
-              <li>Handcraft and traditional techniques</li>
-              <li>Design development and problem solving</li>
-            </ul>
-          </div>
-          <dl class="facts" data-reveal>
-            <div><dt>Training</dt><dd>École de joaillerie de Montréal, class of 2023</dd></div>
-            <div><dt>Role</dt><dd>Goldsmith, bench jeweler</dd></div>
-            <div><dt>Based in</dt><dd>Amsterdam, Netherlands</dd></div>
-          </dl>
+        <p data-reveal>I enjoy working with my hands, exploring traditional techniques and finding new ways to combine them with contemporary design.</p>
+        <p data-reveal>I am looking for a position as a goldsmith or bench jeweler in Amsterdam, to develop my skills and contribute to a creative studio or workshop.</p>
+        <div class="about__skills" data-reveal>
+          <h3>Skills and interests</h3>
+          <ul class="ticks">
+            <li>Sawing, filing, soldering, polishing</li>
+            <li>Stone setting, basic to intermediate</li>
+            <li>Working with silver, gold and other metals</li>
+            <li>Handcraft and traditional techniques</li>
+            <li>Design development and problem solving</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -76,7 +70,6 @@
       <div class="strip" tabindex="0" aria-label="Sketches, drag or use the arrows to browse">
         <figure class="strip__item"><img src="img/croquis-collier-bleu.jpg" width="675" height="1200" alt="Gouache sketch of a blue bead necklace with a faceted pendant" loading="lazy" decoding="async" draggable="false"><figcaption>Gouache study, pendant</figcaption></figure>
         <figure class="strip__item"><img src="img/croquis-collier-bleu-entier.jpg" width="1200" height="962" alt="Gouache sketch of the whole blue bead necklace" loading="lazy" decoding="async" draggable="false"><figcaption>The full necklace</figcaption></figure>
-        <figure class="strip__item"><img src="img/croquis-bague-or.jpg" width="675" height="1200" alt="Gouache sketch of a grooved gold ring, top and side views" loading="lazy" decoding="async" draggable="false"><figcaption>One ring, two views</figcaption></figure>
         <figure class="strip__item"><img src="img/croquis-boucles.jpg" width="675" height="1200" alt="Two finished earrings laid on their pencil sketch" loading="lazy" decoding="async" draggable="false"><figcaption>Earrings on their sketch</figcaption></figure>
       </div>
       <div class="strip__nav">
@@ -86,17 +79,25 @@
       </div>
     </section>
 
-    <!-- 4. Technical drawing: drawn on scroll, dimensions light up on hover -->
+    <!-- 4. Two drawings: the technical one draws itself, the creative one gives the identity -->
     <section class="drawing" aria-labelledby="drawing-title">
       <div class="drawing__text">
-        <h2 class="section-title" id="drawing-title" data-reveal>Technical drawings</h2>
-        <p data-reveal>Drawings help me understand proportions, fit and construction before starting the actual piece.</p>
-        <ul class="dims" data-reveal>
+        <h2 class="section-title" id="drawing-title" data-reveal>Two drawings</h2>
+        <p data-reveal>Every piece is drawn twice. First comes a technical drawing, at the very start: it helps me understand proportions, fit and construction before I touch the metal.</p>
+        <p data-reveal>Then a creative drawing gives the piece its identity: its colour, its light, its character.</p>
+        <div class="switch" role="tablist" aria-label="Choose a drawing" data-reveal>
+          <button type="button" role="tab" id="view-tech" aria-controls="stage-tech" aria-selected="true" class="is-on">Technical</button>
+          <button type="button" role="tab" id="view-creative" aria-controls="stage-creative" aria-selected="false">Creative</button>
+        </div>
+        <ul class="dims" id="dims" data-reveal>
           <li><button type="button" data-dim="w"><b>22 mm</b> outer width</button></li>
           <li><button type="button" data-dim="d"><b>18 mm</b> inner diameter</button></li>
           <li><button type="button" data-dim="b"><b>5 mm</b> band width</button></li>
         </ul>
+        <p class="drawing__note" id="creative-note" hidden>Gouache and ink: two studies of the same grooved ring.</p>
       </div>
+      <div class="drawing__stage">
+        <div class="stage is-on" id="stage-tech" role="tabpanel" aria-labelledby="view-tech">
       <svg class="plan" data-reveal="draw" viewBox="0 0 640 420" role="img" aria-labelledby="plan-title">
         <title id="plan-title">Front and side views of a faceted ring, with its dimensions</title>
         <g class="plan__line">
@@ -121,6 +122,11 @@
         <text class="plan__label" x="178" y="404" text-anchor="middle">Front</text>
         <text class="plan__label" x="462" y="404" text-anchor="middle">Side</text>
       </svg>
+        </div>
+        <figure class="stage stage--creative" id="stage-creative" role="tabpanel" aria-labelledby="view-creative" hidden>
+          <img src="img/croquis-bague-or.jpg" width="675" height="1200" alt="Gouache drawing of a grooved gold ring, seen from above and from the side" loading="lazy" decoding="async">
+        </figure>
+      </div>
     </section>
 
     <!-- 5. Materials and techniques -->
@@ -130,7 +136,7 @@
         <p data-reveal>I work with traditional hand tools and techniques, while staying open to new methods and materials. Each step is part of the creative and technical process.</p>
       </div>
       <div class="tech__grid">
-        <figure class="tech__item" data-reveal><img src="img/etabli-hexagones.jpg" width="900" height="1200" alt="Dozens of sawn silver hexagons laid out on the bench, parts of the Couronne Boréale necklace" loading="lazy" decoding="async"><figcaption>Sawing and filing</figcaption></figure>
+        <figure class="tech__item" data-reveal><img src="img/etabli-hexagones.jpg" width="900" height="1200" alt="Dozens of sawn silver hexagons laid out on the bench" loading="lazy" decoding="async"><figcaption>Sawing and filing</figcaption></figure>
         <figure class="tech__item" data-reveal><img src="img/etabli-forge.jpg" width="900" height="1200" alt="A silver rod being shaped on a steel stake" loading="lazy" decoding="async"><figcaption>Forging</figcaption></figure>
         <figure class="tech__item" data-reveal><img src="img/jonc-martele.jpg" width="1200" height="1600" alt="A wide hammered silver band on a worn wooden bench" loading="lazy" decoding="async"><figcaption>Texturing</figcaption></figure>
         <figure class="tech__item" data-reveal><img src="img/etabli-sertissure.jpg" width="900" height="1200" alt="A crown setting on a mandrel, ready for its stone" loading="lazy" decoding="async"><figcaption>Stone setting</figcaption></figure>
@@ -151,8 +157,8 @@
     <!-- Marquee -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Sterling silver</span><span>Geometry</span><span>Constellations</span><span>Sawing</span><span>Soldering</span><span>Stone setting</span><span>Polishing</span>
-        <span>Sterling silver</span><span>Geometry</span><span>Constellations</span><span>Sawing</span><span>Soldering</span><span>Stone setting</span><span>Polishing</span>
+        <span>Sterling silver</span><span>Geometry</span><span>Sawing</span><span>Soldering</span><span>Stone setting</span><span>Polishing</span>
+        <span>Sterling silver</span><span>Geometry</span><span>Sawing</span><span>Soldering</span><span>Stone setting</span><span>Polishing</span>
       </div>
     </div>
 
@@ -160,13 +166,13 @@
     <section class="teaser" id="work" aria-labelledby="work-title">
       <div class="teaser__head">
         <h2 class="section-title" id="work-title" data-reveal>Selected work</h2>
-        <a class="teaser__all" href="work.html" data-reveal><span>See all 28 pieces</span><span aria-hidden="true">→</span></a>
+        <a class="teaser__all" href="work.html" data-reveal><span>See all 26 pieces</span><span aria-hidden="true">→</span></a>
       </div>
       <div class="teaser__row">
-        <a class="teaser__item" href="work.html#couronne-boreale" data-reveal><span class="teaser__img"><img src="img/collier-couronne-boreale-45.jpg" width="1120" height="1400" alt="Articulated sterling silver hexagon necklace on a white bust" loading="lazy" decoding="async"></span><span class="teaser__name">Couronne Boréale</span><span class="teaser__mat">Sterling silver, Constellations</span></a>
         <a class="teaser__item" href="work.html#crown-solitaire" data-reveal><span class="teaser__img"><img src="img/solitaire-couronne.jpg" width="1200" height="1600" alt="Sterling silver solitaire ring, an amber stone held by a crown of prongs" loading="lazy" decoding="async"></span><span class="teaser__name">Crown solitaire</span><span class="teaser__mat">Sterling silver</span></a>
         <a class="teaser__item" href="work.html#pearl-ring" data-reveal><span class="teaser__img"><img src="img/bague-perles.jpg" width="1205" height="1600" alt="Silver ring whose blackened half-moon head holds two pearls" loading="lazy" decoding="async"></span><span class="teaser__name">Pearl ring</span><span class="teaser__mat">Sterling silver, pearls</span></a>
         <a class="teaser__item" href="work.html#tree-pendant" data-reveal><span class="teaser__img"><img src="img/pendentif-arbre.jpg" width="1200" height="1600" alt="Silver medallion pierced with a tree" loading="lazy" decoding="async"></span><span class="teaser__name">Tree pendant</span><span class="teaser__mat">Sterling silver</span></a>
+        <a class="teaser__item" href="work.html#braided-band" data-reveal><span class="teaser__img"><img src="img/jonc-tresse.jpg" width="1600" height="1200" alt="Wide hammered silver band circled by a braid of silver wire" loading="lazy" decoding="async"></span><span class="teaser__name">Braided band</span><span class="teaser__mat">Sterling silver</span></a>
       </div>
     </section>
 
