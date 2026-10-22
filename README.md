@@ -21,8 +21,8 @@ Le site est en anglais.
 
 1. **Hero** : le nom MORTIER et les quatre anneaux facettés, sur fond papier.
 2. **About me** : le texte de la slide About me du portfolio, et les compétences.
-3. **From observation to form** : les croquis à la gouache, en rangée qu'on fait glisser.
-4. **Drawings** : le dessin technique de la bague à rainures (qui se trace, cotes au survol) et le dessin créatif, avec un bouton pour passer de l'un à l'autre.
+3. **From observation to form** : les dessins, en rangée qu'on fait glisser, sans légendes.
+4. **Drawings** : le dessin créatif de la bague à trois côtes (la photo du dessin technique est à venir).
 5. **Materials and techniques** : quatre gestes d'établi.
 6. **Workshop** : l'atelier.
 7. **Selected work** : quatre pièces, avec un lien vers la page des pièces.
@@ -52,8 +52,7 @@ Pour le hero, une photo sur fond blanc fonctionne le mieux : le blanc se fond da
 
 Ces contenus sont des exemples à vérifier ou à remplacer :
 
-- l'adresse courriel `atelier@mortier.ca`, dans la section Get in touch (`data-to`) et le pied de page ;
-- les cotes du dessin technique (21 mm, 17,5 mm, 8 mm, 1,75 mm au centre ; profil bombé à trois côtes) : estimées d'après le croquis à la gouache ;
+- la photo du dessin technique, à ajouter dans la section Drawings ;
 - les noms des pièces : seul Collision Stellaire vient de vous, les autres sont descriptifs ;
 - les descriptions, matières et finitions des pièces ;
 - le classement des pièces dans les filtres.
