@@ -1,8 +1,4 @@
 {
-  "seo": {
-    "title": "Mortier — Mathis Mortier d’Aumont, jeweler",
-    "description": "Mortier is the work of Mathis Mortier d’Aumont, goldsmith and bench jeweler. One-off pieces in sterling silver, built on a geometric aesthetic drawn from nature."
-  },
   "hero": {
     "line": "Jewelry by Mathis Mortier d’Aumont. Sterling silver rings inspired by geometry in nature.",
     "role": "Goldsmith\nBench jeweler",
@@ -11,7 +7,7 @@
   },
   "about": {
     "title": "About me",
-    "lead": "I am a jewelry maker with a strong interest in material, process and form.",
+    "lead": "I am a jewelry maker with a strong interest in material, process and form. TEST",
     "paragraphs": [
       "I enjoy working with my hands, exploring traditional techniques and finding new ways to combine them with contemporary design.",
       "I am looking for a position as a goldsmith or bench jeweler in Amsterdam, to develop my skills and contribute to a creative studio or workshop."
@@ -51,7 +47,6 @@
       "Every piece is drawn twice. First comes a technical drawing, at the very start: it helps me understand proportions, fit and construction before I touch the metal.",
       "Then a creative drawing gives the piece its identity: its colour, its light, its character."
     ],
-    "technical_image": "",
     "technical_alt": "Technical drawing of the ring",
     "creative_image": "/img/croquis-bague-or-paysage.jpg",
     "creative_alt": "Creative drawing of a wide gold ring with three ribs"
@@ -120,11 +115,14 @@
       "A position in your studio",
       "A piece",
       "Something else"
-    ],
-    "form_endpoint": ""
+    ]
   },
   "footer": {
     "instagram": "bijoux_mortier",
     "note": "All pieces shown are made in the workshop."
+  },
+  "seo": {
+    "title": "Mortier — Mathis Mortier d’Aumont, jeweler",
+    "description": "Mortier is the work of Mathis Mortier d’Aumont, goldsmith and bench jeweler. One-off pieces in sterling silver, built on a geometric aesthetic drawn from nature."
   }
 }
