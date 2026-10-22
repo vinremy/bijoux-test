@@ -252,7 +252,7 @@ button, input { font: inherit; color: inherit; }
 
 /* ---------- 3. Design process: draggable strip of sketches ---------- */
 .process { padding: clamp(48px, 6vw, 88px) 0 var(--section); overflow: hidden; }
-.process__head, .tech__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; padding-inline: var(--m); margin-bottom: 40px; }
+.process__head, .tech__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; padding-inline: var(--m); margin-bottom: 56px; }
 .process__head p, .tech__head p { max-width: 38ch; color: var(--muted); }
 .strip {
   display: flex; gap: var(--gap); overflow-x: auto; padding-inline: var(--m);
@@ -280,11 +280,11 @@ button, input { font: inherit; color: inherit; }
 /* ---------- 4. Technical drawing ---------- */
 .drawing {
   background: var(--paper); color: var(--paper-ink);
-  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--m); row-gap: 40px;
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); column-gap: clamp(48px, 6vw, 112px); row-gap: 48px;
   align-items: center; padding: var(--section) var(--m);
 }
 .drawing ::selection { background: var(--paper-ink); color: var(--paper); }
-.drawing__text { grid-column: 1 / 5; }
+.drawing__text { grid-column: 1; min-width: 0; }
 .drawing__text p { margin-top: 24px; max-width: 34ch; }
 .dims { margin-top: 36px; display: grid; gap: 8px; }
 .dims button {
@@ -306,7 +306,7 @@ button, input { font: inherit; color: inherit; }
 .switch button:active { transform: scale(0.97); }
 .dims[hidden], .drawing__note[hidden] { display: none; }
 .drawing__note { margin-top: 24px; color: #4f554f; max-width: 34ch; }
-.drawing__stage { grid-column: 5 / 13; display: grid; align-items: center; justify-items: center; min-height: min(70svh, 600px); }
+.drawing__stage { grid-column: 2; min-width: 0; display: grid; align-items: center; justify-items: center; min-height: min(70svh, 600px); }
 .stage { grid-area: 1 / 1; width: 100%; display: flex; justify-content: center; }
 .stage[hidden] { display: none; }
 .stage.is-on { animation: fade-up 600ms var(--ease-out); }
@@ -332,8 +332,9 @@ button, input { font: inherit; color: inherit; }
   .js .plan.is-in text { opacity: 1; }
 }
 @keyframes draw { to { stroke-dashoffset: 0; } }
-@media (max-width: 900px) {
-  .drawing { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 1180px) {
+  .drawing { grid-template-columns: minmax(0, 1fr); row-gap: 56px; }
+  .drawing__text p { max-width: 60ch; }
   .drawing__text, .drawing__stage { grid-column: 1; }
   .drawing__stage { min-height: 0; }
   .stage--creative img { height: auto; width: 100%; }
