@@ -1,0 +1,211 @@
+---
+permalink: index.html
+---
+{%- set seo = home.seo -%}{%- set themeColor = "#e3e2da" -%}{%- set backToTop = "#top" -%}
+{% include "head.njk" %}
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <!-- 1. Hero: the name, and one piece -->
+  <header class="hero" id="top">
+    <div class="bar">
+      <a class="bar__mark" href="#top" aria-label="Mortier, back to top"><span class="bar__word">Mortier</span><span class="bar__mono" aria-hidden="true">M</span></a>
+      <nav class="bar__nav" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#process">Process</a>
+        <a href="work.html">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <h1 class="hero__title" aria-label="Mortier">{{ "Mortier" | letters | safe }}</h1>
+    <figure class="hero__piece">
+      {% image home.hero.image, home.hero.image_alt, "", "(max-width: 760px) 118vw, min(1180px, 100vw)", 'fetchpriority="high"' %}
+    </figure>
+    <p class="hero__line">{{ home.hero.line }}</p>
+    <p class="hero__role">{{ home.hero.role | nl2br | safe }}</p>
+  </header>
+
+  <main id="content">
+
+    <!-- 2. About me -->
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about__pic" data-reveal="wipe">
+        {% image home.about.portrait, home.about.portrait_alt, "", "(max-width: 900px) 100vw, 42vw" %}
+      </div>
+      <div class="about__body">
+        <h2 class="about__title" id="about-title" data-reveal>{{ home.about.title }}</h2>
+        <p class="about__lead" data-reveal>{{ home.about.lead }}</p>
+        {%- for p in home.about.paragraphs %}
+        <p data-reveal>{{ p }}</p>
+        {%- endfor %}
+        {%- if home.about.skills | length %}
+        <div class="about__skills" data-reveal>
+          <h3>{{ home.about.skills_title }}</h3>
+          <ul class="ticks">
+            {%- for s in home.about.skills %}
+            <li>{{ s }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}
+      </div>
+    </section>
+
+    <!-- 3. Design process -->
+    <section class="process" id="process" aria-labelledby="process-title">
+      <div class="process__head">
+        <h2 class="section-title" id="process-title" data-reveal>{{ home.process.title }}</h2>
+        <p data-reveal>{{ home.process.intro }}</p>
+      </div>
+      <div class="strip" tabindex="0" aria-label="Drawings, drag or use the arrows to browse">
+        {%- asyncEach d in home.process.drawings %}
+        <figure class="strip__item">{% image d.image, d.alt, "", "(max-width: 760px) 90vw, 60vw", 'loading="lazy" decoding="async" draggable="false"' %}</figure>
+        {%- endeach %}
+      </div>
+      <div class="strip__nav">
+        <button type="button" class="strip__btn" data-dir="-1" aria-label="Previous">←</button>
+        <div class="strip__bar" aria-hidden="true"><i></i></div>
+        <button type="button" class="strip__btn" data-dir="1" aria-label="Next">→</button>
+      </div>
+    </section>
+
+    <!-- 4. Drawings: technical and creative -->
+    {%- set dr = home.drawings %}
+    <section class="drawing" aria-labelledby="drawing-title">
+      <div class="drawing__text">
+        <h2 class="section-title" id="drawing-title" data-reveal>{{ dr.title }}</h2>
+        {%- for p in dr.paragraphs %}
+        <p data-reveal>{{ p }}</p>
+        {%- endfor %}
+        {%- if dr.technical_image and dr.creative_image %}
+        <div class="switch" role="tablist" aria-label="Choose a drawing" data-reveal>
+          <button type="button" role="tab" id="view-tech" aria-controls="stage-tech" aria-selected="true" class="is-on">Technical</button>
+          <button type="button" role="tab" id="view-creative" aria-controls="stage-creative" aria-selected="false">Creative</button>
+        </div>
+        {%- endif %}
+      </div>
+      <div class="drawing__stage">
+        {%- if dr.technical_image %}
+        <figure class="stage stage--creative is-on" id="stage-tech" role="tabpanel" data-reveal="wipe">
+          {% image dr.technical_image, dr.technical_alt, "", "(max-width: 1180px) 100vw, 60vw" %}
+        </figure>
+        {%- endif %}
+        {%- if dr.creative_image %}
+        <figure class="stage stage--creative{% if not dr.technical_image %} is-on{% endif %}" id="stage-creative" role="tabpanel"{% if dr.technical_image %} hidden{% else %} data-reveal="wipe"{% endif %}>
+          {% image dr.creative_image, dr.creative_alt, "", "(max-width: 1180px) 100vw, 60vw" %}
+        </figure>
+        {%- endif %}
+      </div>
+    </section>
+
+    <!-- 5. Materials and techniques -->
+    <section class="tech" aria-labelledby="tech-title">
+      <div class="tech__head">
+        <h2 class="section-title" id="tech-title" data-reveal>{{ home.techniques.title }}</h2>
+        <p data-reveal>{{ home.techniques.intro }}</p>
+      </div>
+      <div class="tech__grid">
+        {%- asyncEach t in home.techniques.items %}
+        <figure class="tech__item" data-reveal>{% image t.image, t.alt, "", "(max-width: 900px) 50vw, 25vw" %}<figcaption>{{ t.name }}</figcaption></figure>
+        {%- endeach %}
+      </div>
+    </section>
+
+    <!-- 6. Workshop -->
+    <section class="workshop" aria-labelledby="workshop-title">
+      <div class="workshop__pic" data-reveal="wipe">
+        {% image home.workshop.image, home.workshop.image_alt, "", "(max-width: 900px) 100vw, 50vw" %}
+      </div>
+      <div class="workshop__text">
+        <h2 class="section-title" id="workshop-title" data-reveal>{{ home.workshop.title }}</h2>
+        <p class="workshop__quote" data-reveal>{{ home.workshop.text }}</p>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        {% for w in home.marquee %}<span>{{ w }}</span>{% endfor %}
+        {% for w in home.marquee %}<span>{{ w }}</span>{% endfor %}
+      </div>
+    </div>
+
+    <!-- 7. A glimpse of the work; the full catalogue lives on work.html -->
+    <section class="teaser" id="work" aria-labelledby="work-title">
+      <div class="teaser__head">
+        <h2 class="section-title" id="work-title" data-reveal>{{ home.selected_work.title }}</h2>
+        <a class="teaser__all" href="work.html" data-reveal><span>See all {{ pieces.all | length }} pieces</span><span aria-hidden="true">→</span></a>
+      </div>
+      <div class="teaser__row">
+        {%- asyncEach p in pieces.home %}
+        <a class="teaser__item" href="work.html#{{ p.slug }}" data-reveal><span class="teaser__img">{% image p.photo, p.name, "", "(max-width: 900px) 50vw, 25vw" %}</span><span class="teaser__name">{{ p.name }}</span><span class="teaser__mat">{{ p.materials }}</span></a>
+        {%- endeach %}
+      </div>
+    </section>
+
+    <!-- 8. Amsterdam and goals -->
+    <section class="goals" aria-labelledby="goals-title">
+      <h2 class="goals__title" id="goals-title" data-reveal>{{ home.goals.title }}</h2>
+      <div class="goals__grid">
+        <div class="goals__lead">
+          {%- for p in home.goals.paragraphs %}
+          <p data-reveal>{{ p }}</p>
+          {%- endfor %}
+        </div>
+        <div class="goals__list" data-reveal>
+          <h3>{{ home.goals.list_title }}</h3>
+          <ul>
+            {%- for g in home.goals.list %}
+            <li>{{ g }}</li>
+            {%- endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact__intro">
+        <h2 class="contact__title" id="contact-title" data-reveal>{{ home.contact.title }}</h2>
+        <p data-reveal>{{ home.contact.intro }}</p>
+        <p class="contact__direct" data-reveal>Or directly: <a href="mailto:{{ home.contact.email }}">{{ home.contact.email }}</a></p>
+      </div>
+
+      <form class="mail" id="mail" data-to="{{ home.contact.email }}" data-endpoint="{{ home.contact.form_endpoint }}" novalidate data-reveal>
+        <div class="mail__row">
+          <div class="field">
+            <label for="mail-name">Name</label>
+            <input id="mail-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="mail-email">Email</label>
+            <input id="mail-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <span class="field__label" id="topic-label">Topic</span>
+          <div class="chips" role="radiogroup" aria-labelledby="topic-label">
+            {%- for t in home.contact.topics %}
+            <label><input type="radio" name="topic" value="{{ t }}"{% if loop.first %} checked{% endif %}><span>{{ t }}</span></label>
+            {%- endfor %}
+          </div>
+        </div>
+        <div class="field">
+          <label for="mail-message">Message</label>
+          <textarea id="mail-message" name="message" rows="5" required></textarea>
+          <span class="field__count" id="mail-count" aria-live="polite">0 / 1000</span>
+        </div>
+        <div class="mail__send">
+          <button type="submit" class="mail__btn"><span>Send</span><span aria-hidden="true">→</span></button>
+          <p class="mail__status" id="mail-status" role="status"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+{% include "footer.njk" %}
+
+  <script src="js/main.js"></script>
+</body>
+</html>

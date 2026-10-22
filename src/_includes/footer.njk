@@ -1,0 +1,11 @@
+  <footer class="foot">
+    <p class="foot__name" aria-hidden="true">{{ "Mortier" | letters | safe }}</p>
+    <div class="foot__row">
+      {% if home.footer.instagram %}<a href="https://www.instagram.com/{{ home.footer.instagram }}/" target="_blank" rel="noopener">@{{ home.footer.instagram }}</a>{% endif %}
+      <a href="mailto:{{ home.contact.email }}">{{ home.contact.email }}</a>
+    </div>
+    <div class="foot__legal">
+      <p>© {{ year }} Mortier, Mathis Mortier d’Aumont. {{ home.footer.note }}</p>
+      <a href="{{ backToTop }}">Back to top</a>
+    </div>
+  </footer>

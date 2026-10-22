@@ -1,0 +1,95 @@
+---
+permalink: work.html
+---
+{%- set seo = work.seo -%}{%- set themeColor = "#161c1a" -%}{%- set backToTop = "#content" -%}
+{% include "head.njk" %}
+<body class="page-work">
+  <a class="skip" href="#content">Skip to content</a>
+  <div class="progress" aria-hidden="true"><i></i></div>
+
+  <header class="page-head">
+    <div class="bar">
+      <a class="bar__mark" href="index.html" aria-label="Mortier, home"><span class="bar__word">Mortier</span><span class="bar__mono" aria-hidden="true">M</span></a>
+      <nav class="bar__nav" aria-label="Main">
+        <a href="index.html#about">About</a>
+        <a href="index.html#process">Process</a>
+        <a href="work.html" aria-current="page">Work</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <h1 class="page-head__title">{{ work.title }}</h1>
+    <p class="page-head__lead">{{ work.lead }}</p>
+  </header>
+
+  <main id="content">
+    {%- set sel = pieces.selected %}
+    {%- if sel | length %}
+    <!-- 1. Selected pieces: pick one in the list -->
+    <section class="feature" id="selected" aria-labelledby="selected-title">
+      <h2 class="feature__title" id="selected-title" data-reveal>{{ work.selected_title }}</h2>
+      <div class="showcase" data-reveal>
+        <ul class="showcase__list" role="tablist" aria-label="{{ work.selected_title }}">
+          {%- for p in sel %}
+          <li><button type="button" role="tab" id="tab-{{ loop.index0 }}" data-anchor="{{ p.slug }}" aria-controls="info-{{ loop.index0 }}" aria-selected="{{ 'true' if loop.first else 'false' }}"{% if loop.first %} class="is-on"{% endif %}>{{ p.name }}</button></li>
+          {%- endfor %}
+        </ul>
+        <div class="showcase__frame">
+          {%- asyncEach p in sel %}
+          {% image p.photo, p.name, "is-on" if loop.first else "", "(max-width: 900px) 100vw, 34vw" %}
+          {%- endeach %}
+        </div>
+        <div class="showcase__info">
+          {%- for p in sel %}
+          <div class="info{% if loop.first %} is-on{% endif %}" role="tabpanel" id="info-{{ loop.index0 }}" aria-labelledby="tab-{{ loop.index0 }}"{% if not loop.first %} hidden{% endif %}>
+            {% if p.description %}<p>{{ p.description }}</p>{% endif %}
+            <dl>{% if p.materials %}<div><dt>Material</dt><dd>{{ p.materials }}</dd></div>{% endif %}{% for d in p.details %}<div><dt>{{ d.label }}</dt><dd>{{ d.value }}</dd></div>{% endfor %}</dl>
+          </div>
+          {%- endfor %}
+        </div>
+        <p class="showcase__count" aria-hidden="true"><span id="sc-count">1</span> / {{ sel | length }}</p>
+      </div>
+    </section>
+    {%- endif %}
+
+    <!-- 2. Every piece: filters, viewer -->
+    <section class="collection" id="all" aria-labelledby="all-title">
+      <div class="collection__head">
+        <h2 class="collection__title" id="all-title" data-reveal>{{ work.all_title }}</h2>
+        <div class="filters" role="group" aria-label="Filter pieces" data-reveal>
+          <button type="button" class="is-on" data-filter="all" aria-pressed="true">All <sup>{{ pieces.all | length }}</sup></button>
+          {%- for c in pieces.categories %}
+          <button type="button" data-filter="{{ c.value }}" aria-pressed="false">{{ c.label }} <sup>{{ c.count }}</sup></button>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="grid" id="grid" data-limit="0">
+        {%- asyncEach p in pieces.all %}
+        <button type="button" class="card" id="{{ p.slug }}" data-cat="{{ p.category }}" data-mat="{{ p.materials }}" data-photos="{% photoUrls p.photos %}" data-reveal>{% image p.photo, p.name, "", "(max-width: 900px) 50vw, 33vw" %}<span>{{ p.name }}</span><small>{{ p.materials }}</small></button>
+        {%- endeach %}
+      </div>
+    </section>
+
+    <!-- 3. Close -->
+    <section class="ask" aria-label="Get in touch">
+      <p class="ask__text" data-reveal>{{ work.closing }}</p>
+      <a class="ask__link" href="index.html#contact" data-reveal><span>Get in touch</span><span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+{% include "footer.njk" %}
+
+  <!-- Viewer -->
+  <dialog class="viewer" id="viewer" aria-label="Viewer">
+    <figure>
+      <img id="viewer-img" src="" alt="">
+      <div class="viewer__thumbs" id="viewer-thumbs"></div>
+      <figcaption><span id="viewer-name"></span><span id="viewer-mat"></span><span id="viewer-count"></span></figcaption>
+    </figure>
+    <button type="button" class="viewer__btn viewer__prev" aria-label="Previous piece"><span aria-hidden="true">←</span></button>
+    <button type="button" class="viewer__btn viewer__next" aria-label="Next piece"><span aria-hidden="true">→</span></button>
+    <button type="button" class="viewer__close" aria-label="Close">Close</button>
+  </dialog>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

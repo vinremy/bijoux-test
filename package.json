@@ -1,0 +1,15 @@
+{
+  "name": "mortier",
+  "private": true,
+  "type": "module",
+  "description": "Site de Mortier \u2014 Mathis Mortier d'Aumont",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.2",
+    "@11ty/eleventy-img": "6.0.4",
+    "gray-matter": "4.0.3"
+  }
+}

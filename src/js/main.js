@@ -134,18 +134,16 @@
     g.addEventListener('mouseleave', function () { focusDim(null); });
   });
 
-  // Two drawings: switch between the technical and the creative one.
+  // Drawings: switch between the technical and the creative drawing (only when both exist).
   var views = $$('.switch button');
   if (views.length) {
-    var dims = $('#dims'), note = $('#creative-note');
     views.forEach(function (v) {
       v.addEventListener('click', function () {
         var creative = v.id === 'view-creative';
         views.forEach(function (o) { var on = o === v; o.classList.toggle('is-on', on); o.setAttribute('aria-selected', on); });
-        $('#stage-tech').hidden = creative; $('#stage-creative').hidden = !creative;
-        $('#stage-tech').classList.toggle('is-on', !creative); $('#stage-creative').classList.toggle('is-on', creative);
-        dims.hidden = creative; note.hidden = !creative;
-        if (!creative && plan) { plan.classList.remove('is-in'); void plan.offsetWidth; plan.classList.add('is-in'); }
+        var t = $('#stage-tech'), c = $('#stage-creative');
+        t.hidden = creative; c.hidden = !creative;
+        t.classList.toggle('is-on', !creative); c.classList.toggle('is-on', creative);
       });
     });
   }
@@ -229,14 +227,32 @@
   if (viewer && cards.length) (function () {
   var vImg = $('#viewer-img'), vName = $('#viewer-name'), vCount = $('#viewer-count'), vMat = $('#viewer-mat');
   var list = [], pos = 0;
+  var vThumbs = $('#viewer-thumbs');
+  function photo(url) {
+    vImg.removeAttribute('srcset'); vImg.src = url;
+    vImg.classList.remove('is-new'); void vImg.offsetWidth; vImg.classList.add('is-new');
+    $$('button', vThumbs).forEach(function (b) { b.classList.toggle('is-on', b.getAttribute('data-src') === url); });
+  }
   function show(i) {
     pos = (i + list.length) % list.length;
     var c = list[pos], im = $('img', c);
-    vImg.src = im.src; vImg.alt = im.alt;
+    var photos = [];
+    try { photos = JSON.parse(c.getAttribute('data-photos') || '[]'); } catch (e) {}
+    if (!photos.length) photos = [im.currentSrc || im.src];
+    vImg.alt = im.alt;
     vName.textContent = $('span', c).textContent;
     vMat.textContent = c.getAttribute('data-mat') || '';
     vCount.textContent = (pos + 1) + ' / ' + list.length;
-    vImg.classList.remove('is-new'); void vImg.offsetWidth; vImg.classList.add('is-new');
+    vThumbs.innerHTML = '';
+    vThumbs.hidden = photos.length < 2;
+    if (photos.length > 1) photos.forEach(function (u, k) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('data-src', u); b.setAttribute('aria-label', 'Photo ' + (k + 1) + ' of ' + photos.length);
+      b.innerHTML = '<img src="' + u + '" alt="">';
+      b.addEventListener('click', function () { photo(u); });
+      vThumbs.appendChild(b);
+    });
+    photo(photos[0]);
   }
   cards.forEach(function (c) {
     c.addEventListener('click', function () {

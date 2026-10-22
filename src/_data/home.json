@@ -1,0 +1,130 @@
+{
+  "seo": {
+    "title": "Mortier — Mathis Mortier d’Aumont, jeweler",
+    "description": "Mortier is the work of Mathis Mortier d’Aumont, goldsmith and bench jeweler. One-off pieces in sterling silver, built on a geometric aesthetic drawn from nature."
+  },
+  "hero": {
+    "line": "Jewelry by Mathis Mortier d’Aumont. Sterling silver rings inspired by geometry in nature.",
+    "role": "Goldsmith\nBench jeweler",
+    "image": "/img/anneaux-facettes.jpg",
+    "image_alt": "Four faceted sterling silver rings standing in a row"
+  },
+  "about": {
+    "title": "About me",
+    "lead": "I am a jewelry maker with a strong interest in material, process and form.",
+    "paragraphs": [
+      "I enjoy working with my hands, exploring traditional techniques and finding new ways to combine them with contemporary design.",
+      "I am looking for a position as a goldsmith or bench jeweler in Amsterdam, to develop my skills and contribute to a creative studio or workshop."
+    ],
+    "portrait": "/img/mathis-portrait.jpg",
+    "portrait_alt": "Portrait of Mathis Mortier d’Aumont in a black turtleneck, arms crossed",
+    "skills_title": "Skills and interests",
+    "skills": [
+      "Sawing, filing, soldering, polishing",
+      "Stone setting, basic to intermediate",
+      "Working with silver, gold and other metals",
+      "Handcraft and traditional techniques",
+      "Design development and problem solving"
+    ]
+  },
+  "process": {
+    "title": "From observation to form",
+    "intro": "Ideas often start with nature, a texture or a feeling. I sketch, explore materials and test different shapes before moving to the final piece.",
+    "drawings": [
+      {
+        "image": "/img/croquis-collier-bleu.jpg",
+        "alt": "Gouache sketch of a blue bead necklace with a faceted pendant"
+      },
+      {
+        "image": "/img/croquis-collier-bleu-entier.jpg",
+        "alt": "Gouache sketch of the whole blue bead necklace"
+      },
+      {
+        "image": "/img/croquis-boucles-zoom.jpg",
+        "alt": "Gouache drawing of a pair of stud earrings with green stones"
+      }
+    ]
+  },
+  "drawings": {
+    "title": "Drawings",
+    "paragraphs": [
+      "Every piece is drawn twice. First comes a technical drawing, at the very start: it helps me understand proportions, fit and construction before I touch the metal.",
+      "Then a creative drawing gives the piece its identity: its colour, its light, its character."
+    ],
+    "technical_image": "",
+    "technical_alt": "Technical drawing of the ring",
+    "creative_image": "/img/croquis-bague-or-paysage.jpg",
+    "creative_alt": "Creative drawing of a wide gold ring with three ribs"
+  },
+  "techniques": {
+    "title": "Materials and techniques",
+    "intro": "I work with traditional hand tools and techniques, while staying open to new methods and materials. Each step is part of the creative and technical process.",
+    "items": [
+      {
+        "name": "Sawing and filing",
+        "image": "/img/etabli-hexagones.jpg",
+        "alt": "Dozens of sawn silver hexagons laid out on the bench"
+      },
+      {
+        "name": "Forging",
+        "image": "/img/etabli-forge.jpg",
+        "alt": "A silver rod being shaped on a steel stake"
+      },
+      {
+        "name": "Texturing",
+        "image": "/img/jonc-martele.jpg",
+        "alt": "A wide hammered silver band on a worn wooden bench"
+      },
+      {
+        "name": "Stone setting",
+        "image": "/img/etabli-sertissure.jpg",
+        "alt": "A crown setting on a mandrel, ready for its stone"
+      }
+    ]
+  },
+  "workshop": {
+    "title": "Workshop",
+    "text": "My workspace is where ideas become real. I have been travelling for the past four years to learn new techniques and traditional knowledge. Experiencing different setups has given me a clear picture of how I want my own workshop.",
+    "image": "/img/atelier-indonesie.jpg",
+    "image_alt": "Mathis Mortier d’Aumont with an Indonesian jeweler in her workshop, in front of the benches and tool boards"
+  },
+  "marquee": [
+    "Sterling silver",
+    "Geometry",
+    "Sawing",
+    "Soldering",
+    "Stone setting",
+    "Polishing"
+  ],
+  "selected_work": {
+    "title": "Selected work"
+  },
+  "goals": {
+    "title": "Amsterdam",
+    "paragraphs": [
+      "Amsterdam is a city that values craftsmanship, creativity and diversity.",
+      "I want to join a studio where I can learn from experienced goldsmiths, work on meaningful projects and be part of a community that shares the same passion for jewelry and design."
+    ],
+    "list_title": "My goals",
+    "list": [
+      "Find effective and creative solutions to complex jewelry-making problems",
+      "Expand my knowledge by working alongside skilled goldsmiths",
+      "Develop my own style while respecting the identity and vision of the brand"
+    ]
+  },
+  "contact": {
+    "title": "Get in touch",
+    "intro": "A question about a piece, a position in your studio, an idea to share? Write to me, I answer personally.",
+    "email": "mathmortier22@gmail.com",
+    "topics": [
+      "A position in your studio",
+      "A piece",
+      "Something else"
+    ],
+    "form_endpoint": ""
+  },
+  "footer": {
+    "instagram": "bijoux_mortier",
+    "note": "All pieces shown are made in the workshop."
+  }
+}

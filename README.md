@@ -1,58 +1,46 @@
-# Mortier — site vitrine
+# Mortier — site de Mathis Mortier d'Aumont
 
-Site vitrine d'une page pour Mortier, joaillerie faite main et entièrement sur mesure.
-HTML, CSS et JavaScript simples, sans outil de compilation : ouvrez `index.html` dans un navigateur, ou
-publiez le dossier tel quel sur n'importe quel hébergeur statique (GitHub Pages, Netlify, Vercel…).
+Site en anglais, construit avec [Eleventy](https://www.11ty.dev) et publié sur GitHub Pages.
+Le contenu se modifie dans [Pages CMS](https://app.pagescms.org), sans toucher au code.
 
-## Structure
+## Où est quoi
 
 ```
-index.html        la page d'accueil : l'artiste et sa démarche, avec un aperçu des pièces
-work.html         la page des pièces : pièces choisies, toutes les pièces
-css/styles.css    les styles (couleurs et tailles réglées en haut du fichier, dans :root)
-js/main.js        les animations et interactions des deux pages
-img/              les photos
-fonts/            Bodoni Moda et Jost, hébergées localement (licence SIL OFL)
+content/pieces/*.md     une pièce par fichier (nom, catégorie, photos, matière, pierre, description…)
+src/_data/home.json     tous les textes et photos de l'accueil, section par section
+src/_data/work.json     les textes de la page Work
+src/img/                les photos (celles téléversées dans Pages CMS arrivent ici)
+src/index.njk           gabarit de l'accueil
+src/work.njk            gabarit de la page Work
+src/css, src/js, src/fonts   design, animations, polices
+.pages.yml              ce que Pages CMS affiche comme formulaires
+eleventy.config.js      la construction du site, dont le redimensionnement des photos
+.github/workflows/      reconstruit et publie le site après chaque modification
 ```
 
-Le site est en anglais.
+## Comment le site se met à jour
 
-## Accueil (index.html)
+1. Mathis modifie un contenu dans Pages CMS et clique sur **Save**.
+2. Pages CMS enregistre la modification dans ce dépôt.
+3. GitHub reconstruit le site (onglet **Actions**) et le publie, en une à deux minutes.
 
-1. **Hero** : le nom MORTIER et les quatre anneaux facettés, sur fond papier.
-2. **About me** : le texte de la slide About me du portfolio, et les compétences.
-3. **From observation to form** : les dessins, en rangée qu'on fait glisser, sans légendes.
-4. **Drawings** : le dessin créatif de la bague à trois côtes (la photo du dessin technique est à venir).
-5. **Materials and techniques** : quatre gestes d'établi.
-6. **Workshop** : l'atelier.
-7. **Selected work** : quatre pièces, avec un lien vers la page des pièces.
-8. **Amsterdam** : la ville et les objectifs.
-9. **Get in touch** : le formulaire de contact.
+Les photos sont redimensionnées automatiquement (800 et 1600 px de large) : on peut téléverser
+des photos de téléphone telles quelles, elles sont aussi remises à l'endroit si besoin.
 
-## Pièces (work.html)
+## Travailler sur le code
 
-1. **Selected pieces** : cinq pièces avec leur description. Un lien comme `work.html#pearl-ring` ouvre directement la pièce.
-2. **Every piece** : les 26 pièces, avec filtres et visionneuse plein écran.
+```
+npm install
+npm start        # aperçu local sur http://localhost:8080
+npm run build    # construit le site dans _site/
+```
 
-## Recevoir les messages du formulaire
+## Réglage GitHub nécessaire
+
+Dans **Settings → Pages**, la source doit être **GitHub Actions** (et non « Deploy from a branch »).
+
+## Formulaire de contact
 
 Par défaut, « Send » ouvre le logiciel de courriel du visiteur avec le message déjà rédigé.
-Pour recevoir les messages directement, sans que le visiteur ait à passer par son logiciel :
-
-1. Créez un formulaire gratuit sur un service comme [Formspree](https://formspree.io).
-2. Copiez l'adresse qu'il vous donne (du type `https://formspree.io/f/xxxxxxx`).
-3. Dans `index.html`, collez-la dans `data-endpoint=""` du formulaire `id="mail"`.
-
-## Changer une photo
-
-Déposez la photo dans `img/`, puis remplacez le nom du fichier dans `index.html`.
-Pour le hero, une photo sur fond blanc fonctionne le mieux : le blanc se fond dans le papier de la page.
-
-## À confirmer avant la mise en ligne
-
-Ces contenus sont des exemples à vérifier ou à remplacer :
-
-- la photo du dessin technique, à ajouter dans la section Drawings ;
-- les noms des pièces : seul Collision Stellaire vient de vous, les autres sont descriptifs ;
-- les descriptions, matières et finitions des pièces ;
-- le classement des pièces dans les filtres.
+Pour recevoir les messages directement : créer un formulaire gratuit sur [Formspree](https://formspree.io),
+puis coller son adresse dans Pages CMS → Homepage → Get in touch → *Form service address*.

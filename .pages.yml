@@ -1,0 +1,212 @@
+# Pages CMS — what Mathis can edit, and how it is labelled.
+# Docs: https://pagescms.org/docs/configuration
+media:
+  input: src/img
+  output: /img
+  categories: [image]
+
+content:
+  # ---------------------------------------------------------------- Pieces
+  - name: pieces
+    label: Pieces
+    description: Every piece on the site. Add one with "Add an entry".
+    type: collection
+    path: content/pieces
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      primary: name
+      fields: [name, category, home, selected, order]
+      sort: [order, name]
+      search: [name, material, stone]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: name
+        label: Name
+        type: string
+        required: true
+        description: "For example: Citrine crown"
+      - name: category
+        label: Category
+        type: select
+        required: true
+        description: Decides which filter the piece appears under on the Work page.
+        default: ring
+        options:
+          values:
+            - { value: ring, label: Rings }
+            - { value: band, label: Bands }
+            - { value: neck, label: "Necklaces, pendants, bracelets" }
+            - { value: ear, label: Earrings }
+      - name: photos
+        label: Photos
+        type: image
+        required: true
+        description: The first photo is the main one. Phone photos are fine, the site resizes them.
+        options:
+          multiple: true
+      - name: material
+        label: Material
+        type: string
+        default: Sterling silver
+      - name: stone
+        label: Stone
+        type: string
+        description: Leave empty if there is none. For example, Citrine.
+      - name: description
+        label: Description
+        type: text
+        description: A few sentences. Shown when the piece is in "Selected pieces".
+      - name: details
+        label: Details
+        type: object
+        list: true
+        description: "Extra lines under the description, for example Setting: Crown prongs."
+        fields:
+          - { name: label, label: Label, type: string }
+          - { name: value, label: Value, type: string }
+      - name: home
+        label: Show on homepage
+        type: boolean
+        default: false
+        description: Up to four pieces appear on the homepage, in order.
+      - name: selected
+        label: Selected piece
+        type: boolean
+        default: false
+        description: Adds the piece to the "Selected pieces" showcase on the Work page.
+      - name: order
+        label: Order
+        type: number
+        default: 500
+        description: Lower numbers come first. Use steps of 10 to leave room (10, 20, 30…).
+
+  # ---------------------------------------------------------------- Homepage
+  - name: home
+    label: Homepage
+    description: All the texts and photos of the homepage, section by section.
+    type: file
+    path: src/_data/home.json
+    format: json
+    fields:
+      - name: hero
+        label: Top of the page
+        type: object
+        fields:
+          - { name: line, label: Short text (bottom left), type: text }
+          - { name: role, label: "Role (bottom right, one per line)", type: text }
+          - { name: image, label: Main photo, type: image, description: "A photo on a white background works best." }
+          - { name: image_alt, label: Photo description (for screen readers), type: string }
+      - name: about
+        label: About me
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: lead, label: First sentence (large), type: text }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: portrait, label: Portrait, type: image }
+          - { name: portrait_alt, label: Portrait description, type: string }
+          - { name: skills_title, label: Skills title, type: string }
+          - { name: skills, label: Skills, type: string, list: true }
+      - name: process
+        label: From observation to form
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: intro, label: Text, type: text }
+          - name: drawings
+            label: Drawings in the strip
+            type: object
+            list: true
+            fields:
+              - { name: image, label: Drawing, type: image }
+              - { name: alt, label: Drawing description, type: string }
+      - name: drawings
+        label: Drawings
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: technical_image, label: Technical drawing, type: image, description: "When both drawings are set, a Technical / Creative switch appears." }
+          - { name: technical_alt, label: Technical drawing description, type: string }
+          - { name: creative_image, label: Creative drawing, type: image, description: "A landscape image works best." }
+          - { name: creative_alt, label: Creative drawing description, type: string }
+      - name: techniques
+        label: Materials and techniques
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: intro, label: Text, type: text }
+          - name: items
+            label: Techniques
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Name, type: string }
+              - { name: image, label: Photo, type: image }
+              - { name: alt, label: Photo description, type: string }
+      - name: workshop
+        label: Workshop
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: text, label: Text, type: text }
+          - { name: image, label: Photo, type: image }
+          - { name: image_alt, label: Photo description, type: string }
+      - { name: marquee, label: Words in the scrolling line, type: string, list: true }
+      - name: selected_work
+        label: Selected work
+        type: object
+        description: The pieces shown here are the ones marked "Show on homepage" in Pieces.
+        fields:
+          - { name: title, label: Title, type: string }
+      - name: goals
+        label: Amsterdam
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: paragraphs, label: Paragraphs, type: text, list: true }
+          - { name: list_title, label: List title, type: string }
+          - { name: list, label: Goals, type: string, list: true }
+      - name: contact
+        label: Get in touch
+        type: object
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: intro, label: Text, type: text }
+          - { name: email, label: Email address, type: string, required: true }
+          - { name: topics, label: Topics to choose from, type: string, list: true }
+          - { name: form_endpoint, label: Form service address (optional), type: string, description: "Paste a Formspree address here to receive messages directly. Leave empty to open the visitor's email app." }
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - { name: instagram, label: Instagram username (without @), type: string }
+          - { name: note, label: Small note, type: string }
+      - name: seo
+        label: Search engines
+        type: object
+        fields:
+          - { name: title, label: Page title, type: string }
+          - { name: description, label: Description, type: text }
+
+  # ---------------------------------------------------------------- Work page
+  - name: work
+    label: Work page
+    type: file
+    path: src/_data/work.json
+    format: json
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: lead, label: Text under the title, type: text }
+      - { name: selected_title, label: Showcase title, type: string }
+      - { name: all_title, label: Catalogue title, type: string }
+      - { name: closing, label: Closing text, type: text }
+      - name: seo
+        label: Search engines
+        type: object
+        fields:
+          - { name: title, label: Page title, type: string }
+          - { name: description, label: Description, type: text }
